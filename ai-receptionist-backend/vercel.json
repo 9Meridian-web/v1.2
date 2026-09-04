@@ -6,7 +6,7 @@
     "api/index.js": {
       "includeFiles": "9-meridian-website/**",
       "maxDuration": 60
-    },
+    }
   },
   "rewrites": [
     {
