@@ -1,9 +1,27 @@
+# Dependencies
 node_modules/
+
+# Secrets and local environment configuration
 .env
 .env.*
 !.env.example
+
+# Build output and TypeScript cache
 dist/
 build/
+tsconfig.tsbuildinfo
+
+# Vercel and local deployment metadata
+.vercel/
+
+# Tests, logs, and temporary files
 coverage/
 *.log
+.cache/
+.turbo/
+
+# Editor and operating-system files
+.vscode/
+.idea/
 .DS_Store
+Thumbs.db
