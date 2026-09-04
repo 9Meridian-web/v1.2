@@ -25,16 +25,27 @@
 3. If existing Google connections contain legacy plaintext refresh tokens, run `npm run migrate:encrypt-google-tokens` once after the migration and before exposing the service publicly.
 4. **Do not commit `.env` or any service-role/API/OAuth secrets.**
 5. Use a fresh production `JWT_SECRET`, `GOOGLE_OAUTH_STATE_SECRET`, `INTERNAL_WEBHOOK_SECRET`, and `GOOGLE_TOKEN_ENCRYPTION_KEY`.
-6. Configure Google's production OAuth redirect URI to the HTTPS API URL.
-7. Configure Google OAuth consent/verification for the scopes actually used.
-8. Point `CORS_ORIGINS` only at trusted frontend origins.
-9. Configure the payment provider webhook to call:
+6. Set a separate random `CRON_SECRET` of at least 16 characters. Vercel sends it as a Bearer token when invoking the payment-queue cron endpoint.
+7. Configure Google's production OAuth redirect URI to the HTTPS API URL.
+8. Configure Google OAuth consent/verification for the scopes actually used.
+9. Point `CORS_ORIGINS` only at trusted frontend origins.
+10. Configure the payment provider webhook to call:
    `POST /api/internal/payments/confirmed`
    with `X-Internal-Webhook-Secret` and a provider-unique `payment_id`.
-10. After payment confirmation, the response contains `client_id` and a short-lived `setup_token`. The website should use the setup token to call `POST /api/auth/register` and create the client owner account. Do not expose the internal webhook secret to the browser.
-11. The authenticated onboarding dashboard can call `GET /api/onboarding/status`.
-12. Create the agent with `POST /api/agents`, then publish it with `POST /api/agents/:id/publish`.
-13. Published agents receive a public URL based on `PUBLIC_AGENT_BASE_URL`.
+11. After payment confirmation, the response contains `client_id` and a short-lived `setup_token`. The website should use the setup token to call `POST /api/auth/register` and create the client owner account. Do not expose the internal webhook secret to the browser.
+12. The authenticated onboarding dashboard can call `GET /api/onboarding/status`.
+13. Create the agent with `POST /api/agents`, then publish it with `POST /api/agents/:id/publish`.
+14. Published agents receive a public URL based on `PUBLIC_AGENT_BASE_URL`.
+
+## Vercel deployment
+
+The repository contains `api/index.ts`, a serverless entry point which exports the Express application without calling `listen()`, plus `vercel.json` routing and the payment queue cron job.
+
+1. In Vercel, set the project Root Directory to this folder (`ai-receptionist-backend`) if the Git repository includes its parent folder.
+2. Add every value in `.env.example` under **Settings → Environment Variables** for the Production environment. Do not upload `.env`.
+3. Deploy on a Vercel Pro team. The configured queue job runs every minute; Hobby cron jobs run only once a day and are not suitable for payment processing.
+4. Vercel invokes `GET /api/internal/process-webhooks` every minute. It is internally rewritten to the protected cron function, which verifies `Authorization: Bearer $CRON_SECRET` before claiming queued Razorpay events.
+5. Add the production domain in **Settings → Domains**, then update `FRONTEND_URL`, `CORS_ORIGINS`, `PUBLIC_AGENT_BASE_URL`, and `GOOGLE_REDIRECT_URI` to that domain.
 
 ## Important architecture note
 
