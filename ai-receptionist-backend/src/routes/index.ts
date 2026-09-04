@@ -11,6 +11,7 @@ import agentRoutes from "./agentRoutes";
 import onboardingRoutes from "./onboardingRoutes";
 import internalRoutes from "./internalRoutes";
 import razorpayRoutes from "./razorpayRoutes";
+import publicRoutes from "./publicRoutes";
 
 const router = Router();
 
@@ -41,6 +42,10 @@ router.use("/onboarding", onboardingRoutes);
 router.use("/internal", internalRoutes);
 
 router.use("/payments/razorpay", razorpayRoutes);
+
+// Website feedback does not belong to a tenant and intentionally lives outside
+// the authenticated API.
+router.use("/", publicRoutes);
 
 
 export default router;

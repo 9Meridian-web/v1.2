@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>9 Meridian — AI Chat Agents for Modern Business</title>
 <meta name="description" content="9 Meridian builds AI chatbot agents that answer, qualify, and book customers around the clock.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="/runtime-config.js"></script>
 <style>
  
  
@@ -69,7 +70,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 input,select,textarea{font-family:inherit;}
  
  
-@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes spin{to{transform:rotate(360deg);}}
 @keyframes float{
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(-14px);}
@@ -103,7 +104,6 @@ input,select,textarea{font-family:inherit;}
   66%{transform:translate(-18px,14px) scale(0.96);}
 }
 @keyframes borderSweep{
-  from{transform:rotate(0deg);}
   to{transform:rotate(360deg);}
 }
 @keyframes shimmerSweep{
@@ -111,7 +111,6 @@ input,select,textarea{font-family:inherit;}
   100%{transform:translateX(220%) skewX(-15deg);}
 }
 @keyframes dashFlow{
-  from{stroke-dashoffset:0;}
   to{stroke-dashoffset:-200;}
 }
 @keyframes popIn{
@@ -123,7 +122,6 @@ input,select,textarea{font-family:inherit;}
   50%{opacity:.5;transform:scale(1.15);}
 }
 @keyframes marqueeScroll{
-  from{transform:translateX(0);}
   to{transform:translateX(-50%);}
 }
 @keyframes scrollProgressGlow{
@@ -145,6 +143,7 @@ input,select,textarea{font-family:inherit;}
 }
  
 /* ============ FUTURISTIC GATE ENTRY SCREEN ============ */
+html.lock-active, html.lock-active body{overflow:hidden;height:100%;}
 .lock-screen{
   --p: 0;
   position:fixed;inset:0;z-index:9999;
@@ -652,7 +651,6 @@ input,select,textarea{font-family:inherit;}
     height:100svh;height:100dvh;
     width:min(78vw,320px);
     background:rgba(8,10,24,0.98);
-    -webkit-backdrop-filter:blur(20px);
     backdrop-filter:blur(20px);
     flex-direction:column;
     justify-content:center;
@@ -799,7 +797,6 @@ input,select,textarea{font-family:inherit;}
   border:1px solid var(--line);
   padding:9px 14px;
   border-radius:999px;
-  -webkit-backdrop-filter:blur(6px);
   backdrop-filter:blur(6px);
   animation:float 8s ease-in-out infinite;
 }
@@ -1733,7 +1730,7 @@ input,select,textarea{font-family:inherit;}
 #view-home .site-footer {border-top:1px solid var(--line-soft);padding-top:70px;}
 #view-home .footer-inner {
   display:grid;
-  grid-template-columns:1.6fr 1fr 1fr 1fr 1.2fr;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
   gap:40px;
   padding-bottom:50px;
 }
@@ -2226,8 +2223,8 @@ input,select,textarea{font-family:inherit;}
 #view-payment .payment-shell{min-height:100svh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:42px 22px;position:relative;overflow:hidden}
 #view-payment .payment-orb{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(70px);opacity:.18;pointer-events:none;animation:paymentFloat 9s ease-in-out infinite}
 #view-payment .payment-orb.a{background:#7c3aed;left:-220px;top:-170px}.payment-orb.b{background:#2f8fff;right:-240px;bottom:-190px;animation-delay:-3s}
-@keyframes paymentFloat{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,22px,0) scale(1.05)}}
-#view-payment .payment-card{width:min(100%,760px);background:linear-gradient(180deg,rgba(14,19,48,.94),rgba(8,12,29,.96));border:1px solid var(--line);border-radius:30px;box-shadow:0 40px 100px -45px #000,0 0 0 1px rgba(255,255,255,.02) inset;padding:34px;position:relative;z-index:2;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);animation:paymentIn .65s var(--ease)}
+@keyframes paymentFloat{50%{transform:translate3d(0,22px,0) scale(1.05)}}
+#view-payment .payment-card{width:min(100%,760px);background:linear-gradient(180deg,rgba(14,19,48,.94),rgba(8,12,29,.96));border:1px solid var(--line);border-radius:30px;box-shadow:0 40px 100px -45px #000,0 0 0 1px rgba(255,255,255,.02) inset;padding:34px;position:relative;z-index:2;backdrop-filter:blur(18px);animation:paymentIn .65s var(--ease)}
 @keyframes paymentIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:none}}
 #view-payment .payment-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.payment-brand{display:flex;align-items:center;gap:11px}.payment-brand img{width:34px;height:34px;border-radius:9px}.payment-brand strong{font-family:'Space Grotesk',sans-serif;font-size:16px}.secure-pill{font:11px 'JetBrains Mono',monospace;color:#5be69d;border:1px solid rgba(91,230,157,.22);padding:7px 11px;border-radius:999px;background:rgba(91,230,157,.06)}
 #view-payment .payment-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:stretch}.plan-panel{padding:25px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}.plan-tag{font:11px 'JetBrains Mono',monospace;color:var(--blue-3);letter-spacing:.1em;text-transform:uppercase}.plan-panel h1{font:clamp(28px,4vw,42px);font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.05;margin-top:10px}.plan-panel p{color:var(--ink-dim);font-size:14px;margin-top:13px}.server-price{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:600;margin-top:25px}.server-price small{font:12px 'Inter',sans-serif;color:var(--ink-mute);font-weight:400}.payment-points{display:flex;flex-direction:column;gap:11px;margin-top:23px}.payment-points li{color:var(--ink-dim);font-size:13px;padding-left:21px;position:relative}.payment-points li::before{content:'✓';position:absolute;left:0;color:var(--blue-3);font-weight:700}
@@ -2263,7 +2260,7 @@ html,body{width:100%;max-width:100%;background:var(--bg);overflow-x:clip;}
 .fx-hud button::after{content:"";width:7px;height:7px;border-radius:50%;border:1px solid currentColor;background:rgba(5,7,15,.7);transition:.35s var(--ease);}
 .fx-hud button.is-active{color:var(--blue-3);transform:translateX(-3px);text-shadow:0 0 18px rgba(127,211,255,.55);}
 .fx-hud button.is-active::after{background:var(--fx-hue-1);border-color:transparent;box-shadow:0 0 0 4px rgba(127,211,255,.08),0 0 18px var(--fx-hue-1);}
-.nav-backdrop{display:none;position:fixed;inset:0;z-index:98;background:rgba(2,4,12,.68);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);}
+.nav-backdrop{display:none;position:fixed;inset:0;z-index:98;background:rgba(2,4,12,.68);backdrop-filter:blur(4px);}
 body.nav-open{overflow:hidden;}
 body.nav-open .nav-backdrop{display:block;}
 .auth-guest,.auth-user{display:flex;align-items:center;gap:10px;}
@@ -2272,7 +2269,7 @@ body.nav-open .nav-backdrop{display:block;}
 .user-chip{display:flex;align-items:center;gap:9px;padding:5px 10px 5px 6px!important;border:1px solid var(--line)!important;border-radius:999px!important;background:rgba(255,255,255,.045)!important;max-width:190px;}
 .user-avatar{width:30px;height:30px;border-radius:50%;object-fit:cover;background:var(--grad-v);display:grid;place-items:center;color:#05070f;font-weight:800;font-size:12px;flex:0 0 auto;overflow:hidden;}
 .user-chip-name{font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.user-menu{position:absolute;right:0;top:calc(100% + 10px);width:210px;padding:8px;border:1px solid var(--line);border-radius:15px;background:rgba(8,12,29,.98);box-shadow:0 24px 70px rgba(0,0,0,.5);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);display:none;}
+.user-menu{position:absolute;right:0;top:calc(100% + 10px);width:210px;padding:8px;border:1px solid var(--line);border-radius:15px;background:rgba(8,12,29,.98);box-shadow:0 24px 70px rgba(0,0,0,.5);backdrop-filter:blur(18px);display:none;}
 .auth-user.is-open .user-menu{display:block;animation:stepIn .25s var(--ease);}
 .user-menu a,.user-menu button{display:flex;width:100%;padding:11px 12px;border-radius:9px;color:var(--ink-dim);font-size:13px;text-align:left;}
 .user-menu a:hover,.user-menu button:hover{color:var(--ink);background:var(--panel-strong);}
@@ -2281,7 +2278,7 @@ body.nav-open .nav-backdrop{display:block;}
 /* Why 9 Meridian */
 #view-home .why{border-top:1px solid var(--line-soft);overflow:hidden;}
 #view-home .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-#view-home .why-card{position:relative;min-width:0;padding:28px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(155deg,rgba(14,19,48,.68),rgba(8,12,29,.55));-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease);}
+#view-home .why-card{position:relative;min-width:0;padding:28px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(155deg,rgba(14,19,48,.68),rgba(8,12,29,.55));backdrop-filter:blur(8px);overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease);}
 #view-home .why-card::before{content:attr(data-index);display:block;margin-bottom:34px;color:var(--blue-3);font:500 11px 'JetBrains Mono',monospace;letter-spacing:.1em;}
 #view-home .why-card::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;right:-75px;top:-75px;background:radial-gradient(circle,rgba(157,77,255,.18),transparent 68%);}
 #view-home .why-card:hover{transform:translateY(-5px);border-color:rgba(127,211,255,.34);}
@@ -2296,7 +2293,7 @@ body.nav-open .nav-backdrop{display:block;}
 .login-brand{display:flex;align-items:center;gap:11px;font:600 16px 'Space Grotesk',sans-serif;}
 .login-brand img{width:36px;height:36px;border-radius:10px;}
 .login-back{border:1px solid var(--line);padding:9px 14px;border-radius:999px;color:var(--ink-dim);font-size:13px;}
-.login-card{position:relative;z-index:2;width:min(100%,470px);padding:34px;border:1px solid rgba(255,255,255,.13);border-radius:28px;background:linear-gradient(165deg,rgba(14,19,48,.88),rgba(6,9,22,.84));box-shadow:0 45px 110px -45px #000,0 0 70px rgba(124,58,237,.09);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);}
+.login-card{position:relative;z-index:2;width:min(100%,470px);padding:34px;border:1px solid rgba(255,255,255,.13);border-radius:28px;background:linear-gradient(165deg,rgba(14,19,48,.88),rgba(6,9,22,.84));box-shadow:0 45px 110px -45px #000,0 0 70px rgba(124,58,237,.09);backdrop-filter:blur(22px);}
 .login-kicker{font:500 11px 'JetBrains Mono',monospace;color:var(--blue-3);letter-spacing:.12em;text-transform:uppercase;}
 .login-card h1{font:600 clamp(30px,6vw,44px)/1.08 'Space Grotesk',sans-serif;margin:13px 0 11px;letter-spacing:-.02em;}
 .login-lead{color:var(--ink-dim);font-size:14.5px;margin-bottom:26px;}
@@ -2322,7 +2319,7 @@ body.nav-open .nav-backdrop{display:block;}
 .login-setup code{font:11px 'JetBrains Mono',monospace;color:var(--blue-3);overflow-wrap:anywhere;}
 .email-auth-disabled{margin-top:11px;padding:10px 12px;border:1px solid rgba(255,190,92,.22);border-radius:10px;background:rgba(255,170,42,.055);color:#ffd39a;font:11px/1.45 'JetBrains Mono',monospace;}
 .login-form.is-disabled{opacity:.5;}
-.server-session-notice{display:none;position:fixed;z-index:96;top:82px;left:50%;width:min(94vw,620px);transform:translateX(-50%);align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 16px;border:1px solid rgba(127,211,255,.24);border-radius:999px;background:rgba(8,12,29,.94);box-shadow:0 16px 44px rgba(0,0,0,.38);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:#d9f4ff;font-size:12px;}
+.server-session-notice{display:none;position:fixed;z-index:96;top:82px;left:50%;width:min(94vw,620px);transform:translateX(-50%);align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 16px;border:1px solid rgba(127,211,255,.24);border-radius:999px;background:rgba(8,12,29,.94);box-shadow:0 16px 44px rgba(0,0,0,.38);backdrop-filter:blur(16px);color:#d9f4ff;font-size:12px;}
 .server-session-notice.is-visible{display:flex;}
 .server-session-notice button{width:28px;height:28px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%!important;color:var(--ink-dim)!important;background:rgba(255,255,255,.06)!important;font-size:18px!important;}
 .signed-in-panel{display:none;text-align:center;}
@@ -2334,7 +2331,7 @@ body.nav-open .nav-backdrop{display:block;}
 .login-secondary{padding:11px 17px;border:1px solid var(--line)!important;border-radius:999px!important;color:var(--ink-dim)!important;}
 
 /* Feedback form + global UI */
-.feedback-form-panel{width:min(100%,760px);margin:42px auto 0;padding:32px;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);background:linear-gradient(155deg,rgba(14,19,48,.74),rgba(8,12,29,.68));-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);}
+.feedback-form-panel{width:min(100%,760px);margin:42px auto 0;padding:32px;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);background:linear-gradient(155deg,rgba(14,19,48,.74),rgba(8,12,29,.68));backdrop-filter:blur(16px);}
 .feedback-form-panel h3{font:600 clamp(24px,4vw,32px) 'Space Grotesk',sans-serif;margin-bottom:8px;}
 .feedback-form-panel>p{color:var(--ink-dim);font-size:14px;margin-bottom:22px;}
 .feedback-form{display:flex;flex-direction:column;gap:16px;}
@@ -2349,14 +2346,12 @@ body.nav-open .nav-backdrop{display:block;}
 .feedback-status.error{color:#ffb58d}.feedback-status.success{color:#5be69d}
 .feedback-success{display:none;text-align:center;padding:24px 0 8px;}
 .feedback-success.is-visible{display:block;}.feedback-success .success-ring{margin-bottom:13px;}
-.feedback-fab{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));z-index:85;display:flex;align-items:center;gap:8px;padding:11px 15px;border:1px solid var(--line)!important;border-radius:999px!important;background:rgba(8,12,29,.88)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 16px 40px rgba(0,0,0,.35);font-size:12.5px!important;}
+.feedback-fab{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));z-index:85;display:flex;align-items:center;gap:8px;padding:11px 15px;border:1px solid var(--line)!important;border-radius:999px!important;background:rgba(8,12,29,.88)!important;backdrop-filter:blur(14px);box-shadow:0 16px 40px rgba(0,0,0,.35);font-size:12.5px!important;}
 .view-payment-active .feedback-fab,.view-setup-active .feedback-fab,.view-privacy-active .feedback-fab,.view-login-active .feedback-fab{display:none;}
 .view-payment-active .fx-hud,.view-setup-active .fx-hud,.view-privacy-active .fx-hud{display:none;}
 .app-toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));z-index:10000;max-width:calc(100vw - 32px);transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:12px 17px;border:1px solid rgba(91,230,157,.25);border-radius:999px;background:rgba(7,12,25,.96);box-shadow:0 18px 50px rgba(0,0,0,.45);color:#dffff0;font-size:13px;transition:.35s var(--ease);}
 .app-toast.is-visible{opacity:1;transform:translate(-50%,0);}
 .booking-api-status{min-height:18px;color:var(--ink-mute);font-size:12px;text-align:center;}
-.booking-auth-notice{margin:0;padding:9px 12px;border:1px solid rgba(47,143,255,.24);border-radius:10px;background:rgba(47,143,255,.07);color:var(--blue-3);font:500 11px/1.45 'JetBrains Mono',monospace;text-align:center;}
-.booking-auth-notice[hidden]{display:none;}
 
 /* Responsive system: laptop / tablet / phone / small phone */
 @media (max-width:1199px){
@@ -2430,7 +2425,7 @@ body.entry-exiting .fx-canvas,body.entry-exiting .fx-fallback{filter:brightness(
 .entry-support{margin-top:48px;color:rgba(218,240,255,.64);font:400 clamp(12px,.88vw,16px)/1.6 'Space Grotesk',sans-serif;letter-spacing:.015em;}
 .entry-scroll-cue{position:absolute;right:20%;bottom:8vh;z-index:6;display:flex;flex-direction:column;align-items:center;gap:12px;color:rgba(226,247,255,.68);font:500 10px 'JetBrains Mono',monospace;letter-spacing:.22em;text-transform:uppercase;opacity:calc(1 - min(1,var(--entry-progress) * 2));}
 .entry-scroll-cue svg{width:18px;height:18px;stroke:var(--fx-glow);filter:drop-shadow(0 0 7px var(--fx-glow));animation:entryChevron 2.2s ease-in-out infinite;}
-@keyframes entryChevron{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.45}}
+@keyframes entryChevron{50%{transform:translateY(8px);opacity:.45}}
 
 .entry-utilities{position:absolute;z-index:8;left:max(28px,env(safe-area-inset-left));bottom:max(26px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:17px;pointer-events:auto;}
 .entry-social{display:grid;place-items:center;width:20px;height:20px;color:rgba(181,226,255,.7);transition:.25s ease;}
@@ -2443,14 +2438,11 @@ body.entry-exiting .fx-canvas,body.entry-exiting .fx-fallback{filter:brightness(
 .entry-grid-lines{position:absolute;z-index:2;inset:0;opacity:clamp(0,calc((var(--entry-progress) - .28) * 1.2),.34);background-image:linear-gradient(rgba(0,170,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,170,255,.09) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse at 44% 52%,black,transparent 73%);transform:perspective(600px) rotateX(71deg) translateY(35%);transform-origin:center bottom;}
 
 .entry-access{position:absolute;inset:0;z-index:6;opacity:clamp(0,calc((var(--entry-progress) - .34) * 2.2),1);pointer-events:none;}
-.entry-panel{position:absolute;right:8.5%;top:50%;width:min(32vw,470px);min-width:390px;transform:translate3d(calc((1 - var(--entry-access)) * 90px),-50%,0);opacity:var(--entry-access);pointer-events:none;padding:38px 40px 34px;background:linear-gradient(145deg,rgba(2,8,17,.79),rgba(1,5,12,.63));border:1px solid rgba(0,200,255,.38);box-shadow:0 0 0 1px rgba(234,255,255,.03) inset,0 0 35px rgba(0,144,255,.13),0 28px 90px rgba(0,0,0,.58);-webkit-backdrop-filter:blur(23px) saturate(125%);backdrop-filter:blur(23px) saturate(125%);}
-.entry-access.is-interactive .entry-panel{pointer-events:auto;}
+.entry-panel{position:absolute;right:8.5%;top:50%;width:min(32vw,470px);min-width:390px;transform:translate3d(calc((1 - var(--entry-access)) * 90px),-50%,0);opacity:var(--entry-access);pointer-events:auto;padding:38px 40px 34px;background:linear-gradient(145deg,rgba(2,8,17,.79),rgba(1,5,12,.63));border:1px solid rgba(0,200,255,.38);box-shadow:0 0 0 1px rgba(234,255,255,.03) inset,0 0 35px rgba(0,144,255,.13),0 28px 90px rgba(0,0,0,.58);backdrop-filter:blur(23px) saturate(125%);}
 .entry-panel::before,.entry-panel::after{content:"";position:absolute;width:20px;height:20px;pointer-events:none;}
 .entry-panel::before{left:-1px;top:-1px;border-left:1px solid var(--fx-core);border-top:1px solid var(--fx-core);box-shadow:-4px -4px 16px rgba(0,200,255,.3);}
 .entry-panel::after{right:-1px;bottom:-1px;border-right:1px solid var(--fx-core);border-bottom:1px solid var(--fx-core);box-shadow:4px 4px 16px rgba(0,200,255,.3);}
 .entry-panel-title{margin:0 0 28px;color:var(--fx-core);font:500 clamp(25px,2vw,37px) 'Space Grotesk',sans-serif;letter-spacing:.14em;text-align:center;text-transform:uppercase;text-shadow:0 0 18px rgba(0,200,255,.85);}
-.entry-auth-context{margin:-14px 0 20px;color:var(--fx-core);font:500 9.5px/1.45 'JetBrains Mono',monospace;letter-spacing:.08em;text-align:center;}
-.entry-auth-context[hidden]{display:none;}
 .entry-auth-form{display:grid;gap:15px;}
 .entry-field{position:relative;display:flex;align-items:center;border-bottom:1px solid rgba(126,217,255,.32);transition:border-color .25s,box-shadow .25s;}
 .entry-field:focus-within{border-color:var(--fx-glow);box-shadow:0 7px 15px -13px var(--fx-core);}
@@ -2483,9 +2475,8 @@ body.entry-exiting .fx-canvas,body.entry-exiting .fx-fallback{filter:brightness(
 body.entry-exiting .entry-exit-burst{animation:entryExitBurst .95s cubic-bezier(.15,.78,.24,1) forwards;}
 @keyframes entryExitBurst{0%{opacity:0;transform:scale(.1)}18%{opacity:1}58%{opacity:.82;transform:scale(1.25)}100%{opacity:0;transform:scale(2.35)}}
 
-.entry-feedback-dialog{width:min(92vw,560px);max-height:88dvh;padding:0;border:1px solid rgba(0,200,255,.4);background:rgba(2,8,17,.96);color:var(--ink);box-shadow:0 30px 110px #000,0 0 45px rgba(0,144,255,.22);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);}
-.entry-feedback-dialog[open]{position:fixed;inset:50% auto auto 50%;z-index:10050;transform:translate(-50%,-50%);overflow:auto;}
-.entry-feedback-dialog::backdrop{background:rgba(0,3,9,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.entry-feedback-dialog{width:min(92vw,560px);max-height:88dvh;padding:0;border:1px solid rgba(0,200,255,.4);background:rgba(2,8,17,.96);color:var(--ink);box-shadow:0 30px 110px #000,0 0 45px rgba(0,144,255,.22);backdrop-filter:blur(26px);}
+.entry-feedback-dialog::backdrop{background:rgba(0,3,9,.82);backdrop-filter:blur(8px);}
 .entry-feedback-dialog-inner{padding:34px;}
 .entry-feedback-close{position:absolute;right:14px;top:12px;width:34px;height:34px;color:#bdeeff!important;font-size:24px!important;}
 .entry-feedback-dialog h2{font:500 27px 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-shadow:0 0 18px rgba(0,200,255,.45);}
@@ -2540,7 +2531,7 @@ body.entry-exiting .entry-exit-burst{animation:entryExitBurst .95s cubic-bezier(
   .entry-hero-copy{left:6%;top:25%;width:88%;transform:translateY(-50%)!important;}
   .entry-tagline{margin-top:10px}.entry-support{display:none}.entry-panel{top:auto;bottom:8px;transform:none!important;max-height:68dvh;}
 }
-html.reduced-motion.entry-active{scroll-snap-type:none;overflow:hidden;}
+html.reduced-motion{scroll-snap-type:none;overflow:hidden;}
 html.reduced-motion #view-entry.is-active,html.reduced-motion .entry-scroll{height:100svh;height:100dvh;min-height:100svh;min-height:100dvh;}
 html.reduced-motion .entry-scroll-marker{display:none;}
 html.reduced-motion .entry-hero-copy{left:5%;top:50%;width:38%;opacity:.68!important;filter:none!important;transform:translateY(-50%)!important;}
@@ -2551,13 +2542,173 @@ html.reduced-motion .entry-panel{transform:translateY(-50%)!important;}
 html.reduced-motion .entry-code-rain{opacity:.28!important;transform:none!important;}
 html.reduced-motion .entry-code-rain span{transform:none!important;}
 @media(max-width:639px){html.reduced-motion .entry-hero-copy{left:6%;top:25%;width:88%;transform:translateY(-50%)!important;}html.reduced-motion .entry-support{display:none}html.reduced-motion .entry-panel{top:auto;bottom:8px;transform:none!important;max-height:68dvh;}}
+
+/* ===== INTRO TRANSITION ===== */
+html.intro-active,
+html.intro-active body{
+  overflow:hidden!important;
+  overscroll-behavior:none;
+}
+html.intro-active body > :not(#introOverlay):not(script){pointer-events:none!important;}
+#introOverlay{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  width:100%;
+  height:100vh;
+  height:100svh;
+  height:100dvh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  isolation:isolate;
+  contain:layout paint style;
+  color:var(--ink,#f4f6ff);
+  background:transparent;
+  cursor:pointer;
+  touch-action:none;
+  -webkit-tap-highlight-color:transparent;
+}
+#introOverlay::before{
+  content:"";
+  position:absolute;
+  inset:-5%;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(25,36,81,.38) 0,rgba(7,10,23,.78) 42%,rgba(1,2,8,.98) 82%),
+    var(--bg,#05070f);
+  opacity:1;
+  transform:scale(1);
+  filter:brightness(1);
+  transition:opacity .82s cubic-bezier(.22,.9,.28,1) .48s,transform 1.2s cubic-bezier(.22,.9,.28,1),filter 1.1s ease;
+}
+#introOverlay::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(127,211,255,.055),transparent 24%),
+    linear-gradient(125deg,transparent 22%,rgba(156,77,255,.025) 50%,transparent 72%);
+  opacity:.9;
+  transition:opacity .65s ease .28s,transform 1s var(--ease,cubic-bezier(.22,.9,.28,1));
+}
+.intro-inner{
+  position:relative;
+  z-index:1;
+  width:min(76vw,420px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:clamp(24px,4vh,38px);
+  text-align:center;
+  perspective:900px;
+  user-select:none;
+}
+#introLogo{
+  position:relative;
+  display:grid;
+  place-items:center;
+  transform-style:preserve-3d;
+  animation:introLogoHover 3.2s ease-in-out infinite;
+  will-change:transform,filter;
+}
+#introLogo::before{
+  content:"";
+  position:absolute;
+  width:76%;
+  height:76%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(47,143,255,.2),rgba(109,40,217,.08) 48%,transparent 72%);
+  filter:blur(24px);
+  animation:introAuraBreath 3.2s ease-in-out infinite;
+}
+#introLogoImage{
+  position:relative;
+  width:clamp(138px,22vw,238px);
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.42)) drop-shadow(0 0 22px rgba(47,143,255,.23));
+  pointer-events:none;
+}
+.intro-prompt{
+  color:rgba(222,229,255,.72);
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(10px,1.5vw,12px);
+  font-weight:500;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-shadow:0 0 20px rgba(127,211,255,.24);
+  animation:introPromptPulse 2.25s ease-in-out infinite;
+}
+.intro-prompt::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:5px;
+  margin:0 11px 1px 0;
+  border-radius:50%;
+  background:var(--blue-3,#7fd3ff);
+  box-shadow:0 0 12px rgba(127,211,255,.75);
+}
+#introOverlay.is-rasterized .intro-inner{visibility:hidden;}
+#introOverlay.is-disintegrating::before{
+  opacity:0;
+  transform:scale(1.055);
+  filter:brightness(.72);
+}
+#introOverlay.is-disintegrating::after{opacity:0;transform:scale(1.12);}
+#introOverlay.is-fading{opacity:0;transform:scale(1.008);transition:opacity .34s ease,transform .55s var(--ease,cubic-bezier(.22,.9,.28,1));}
+.intro-particle-canvas{
+  position:fixed;
+  inset:0;
+  z-index:2;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+html.intro-site-prep .view.is-active,
+html.intro-site-prep .fx-canvas,
+html.intro-site-prep .fx-fallback,
+html.intro-site-prep .fx-hud{
+  opacity:0!important;
+  transform:translateY(15px) scale(.996);
+}
+html.intro-site-revealing .view.is-active,
+html.intro-site-revealing body.view-entry-active .fx-canvas,
+html.intro-site-revealing body.view-entry-active .fx-fallback,
+html.intro-site-revealing body.view-entry-active .fx-hud{
+  opacity:1!important;
+  transform:none;
+  transition:opacity .46s ease,transform .5s var(--ease,cubic-bezier(.22,.9,.28,1));
+}
+@keyframes introLogoHover{
+  0%,100%{transform:translateY(8px) rotateX(-2.2deg) rotateY(2.6deg);filter:drop-shadow(0 13px 21px rgba(47,143,255,.13));}
+  50%{transform:translateY(-10px) rotateX(2.1deg) rotateY(-2.8deg);filter:drop-shadow(0 22px 31px rgba(156,77,255,.25));}
+}
+@keyframes introAuraBreath{
+  0%,100%{opacity:.48;transform:scale(.92);}
+  50%{opacity:.86;transform:scale(1.1);}
+}
+@keyframes introPromptPulse{
+  0%,100%{opacity:.42;transform:translateY(1px);}
+  50%{opacity:.9;transform:translateY(-1px);}
+}
+@media (max-width:639px){
+  .intro-inner{width:86vw;gap:28px;}
+  #introLogoImage{width:clamp(132px,42vw,190px);}
+}
+@media (prefers-reduced-motion:reduce){
+  #introLogo,.intro-prompt,#introLogo::before{animation:none!important;}
+  #introOverlay.is-fading{opacity:0;transform:none;transition:opacity .4s linear!important;}
+  html.intro-site-revealing .view.is-active{transform:none;transition:opacity .4s linear!important;}
+}
+
 /* ============ RESPONSIVE HARDENING ============ */
 img,video{max-width:100%;height:auto;}
 iframe,table{max-width:100%;}
 button,input,select,textarea{max-width:100%;}
-a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-.swipe-track,.swipe-handle{touch-action:none;}
-.view :is(h1,h2,h3,h4,p,li,dd,dt,label,button,a){overflow-wrap:anywhere;}
 #view-home section[id]{scroll-margin-top:clamp(4.75rem,8vw,6rem);}
 #view-home :is(.hero-inner,.about-inner,.why-grid,.features-grid,.pricing-grid,.how-grid,.integrations-grid,.security-grid,.roi-panel,.booking-inner,.feedback-grid,.footer-inner)>*,
 #view-payment .payment-grid>*,
@@ -2577,7 +2728,7 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
     position:fixed;inset:0 0 0 auto;width:min(86vw,22.5rem);height:100svh;height:100dvh;z-index:99;
     padding:max(5.75rem,calc(4.5rem + env(safe-area-inset-top))) max(1.75rem,env(safe-area-inset-right)) max(2.125rem,env(safe-area-inset-bottom)) 2.125rem;
     flex-direction:column;justify-content:flex-start;align-items:stretch;gap:.35rem;overflow-y:auto;overscroll-behavior:contain;
-    background:rgba(8,10,24,.98);border-left:1px solid var(--line);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+    background:rgba(8,10,24,.98);border-left:1px solid var(--line);backdrop-filter:blur(20px);
     transform:translateX(100%);transition:transform .5s var(--ease);
   }
   #view-home .main-nav.is-open{transform:translateX(0);}
@@ -2600,7 +2751,6 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
   #view-home .pricing-card{padding:1.75rem 1.35rem;}
   #view-home .pricing-amount{font-size:clamp(2rem,5vw,2.375rem);}
   #view-payment .payment-grid{grid-template-columns:1fr;}
-  #view-payment .plan-panel{display:block;}
 }
 
 /* Phone */
@@ -2661,7 +2811,7 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
   #view-setup .step-actions .btn{flex:1 1 calc(50% - .75rem);justify-content:center;}
   #view-privacy .back-link{white-space:normal;}
   #view-privacy .policy-panel h2{align-items:flex-start;}
-  .entry-panel{left:.5rem;right:.5rem;bottom:max(4.5rem,calc(3.625rem + env(safe-area-inset-bottom)));max-height:calc(100dvh - 5.5rem);padding:1.25rem 1rem 1rem;}
+  .entry-panel{left:.5rem;right:.5rem;padding:1.25rem 1rem 1rem;}
   .entry-feedback-dialog{width:calc(100vw - 1rem);}
   .entry-feedback-actions .entry-feedback-button{width:100%!important;}
 }
@@ -2683,141 +2833,19 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
   input,select,textarea{min-height:44px;}
 }
 
-/* Viewport width remains a reliable touch-size fallback on hybrid devices and emulators. */
-@media (max-width:767px){
-  #view-home :is(.brand,.btn,.nav-link,.nav-toggle,.about-link,.chip,.faq-q,.social-link,.demo-send,.rating-star),
-  #view-home :is(.footer-col a,.footer-bottom-links a),
-  #view-setup :is(.brand,.btn,.checkbox-item label,.radio-item label,.read-more-link),
-  #view-privacy :is(.brand,.back-link,.toc a,.btn),
-  #view-payment :is(.payment-brand,.payment-success .btn),
-  :is(.fx-hud button,.entry-social,.entry-password-toggle,.entry-auth-button,.entry-feedback-close,.feedback-fab,.server-session-notice button){min-height:44px;}
-  #view-home :is(.social-link,.demo-send,.rating-star),
-  :is(.fx-hud button,.entry-social,.entry-password-toggle,.entry-feedback-close,.feedback-fab,.server-session-notice button){min-width:44px;}
-  #view-home :is(.footer-col a,.footer-bottom-links a,.about-link){display:flex;align-items:center;}
-  .entry-signup a{display:inline-flex;align-items:center;min-height:44px;}
-  #view-home input:not([type="range"]),#view-home select,#view-home textarea,
-  #view-setup input:not([type="checkbox"]):not([type="radio"]),#view-setup select,#view-setup textarea,
-  #view-payment input,.entry-field input{min-height:44px;}
-  #view-home .roi-field input[type="range"]{height:44px;background:transparent;}
-  #view-home .roi-field input[type="range"]::-webkit-slider-runnable-track{height:4px;border-radius:999px;background:var(--line);}
-  #view-home .roi-field input[type="range"]::-moz-range-track{height:4px;border-radius:999px;background:var(--line);}
-}
-
-@media (max-width:639px){
-  #view-home .auth-user .user-chip{width:44px;max-width:44px;min-height:44px;padding:5px!important;justify-content:center;}
-  #view-home .auth-user .user-chip-name{display:none;}
-  #view-home .user-menu{right:0;width:min(13.125rem,calc(100vw - 2rem));}
-}
-
-@media (max-width:639px) and (max-height:600px){
-  .feedback-fab{display:none;}
-}
-
-/* Invisible third-party button mounts must never cover the local fallback controls. */
-.google-button-wrap:empty,#googleSignupContainer:empty{pointer-events:none;}
-.entry-access.is-interactive{pointer-events:auto;}
-
-/* Touchscreens should not retain desktop-only lift effects after a tap. */
-@media (hover:none){
-  #view-home :is(.btn-primary,.feature-card,.pricing-card,.integration-card,.security-card,.feedback-card,.social-link,.why-card):hover,
-  #view-home .feature-card:hover .feature-icon,
-  #view-home .integration-card:hover .integration-mark,
-  #view-home .security-card:hover .security-icon,
-  #view-home .demo-send:hover,
-  #view-setup .btn-primary:hover,#view-privacy .btn:hover,.entry-social:hover,.entry-auth-button:hover{transform:none;}
-  #view-home .logo-marquee:hover .logo-marquee-inner{animation-play-state:running;}
-}
-
 @media (prefers-reduced-motion:reduce) and (max-width:639px){.entry-support{display:block;}}
-
-/* ============ LEGAL & POLICIES (buttons reuse #view-home .btn system) ============ */
-/* The modal lives outside #view-home, so re-apply the identical .btn system there. */
-.legal-modal .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:14.5px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),opacity .35s;}
-.legal-modal .btn:active{transform:scale(.97);}
-.legal-modal .btn-primary{background:var(--grad-v);color:#04070f;box-shadow:0 10px 30px -8px rgba(47,143,255,0.55);position:relative;overflow:hidden;}
-.legal-modal .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px -6px rgba(47,143,255,0.7);}
-.legal-modal .btn-primary::after{content:"";position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(115deg,transparent,rgba(255,255,255,0.55),transparent);transform:translateX(-120%) skewX(-15deg);pointer-events:none;}
-.legal-modal .btn-primary:hover::after{animation:shimmerSweep 1.1s ease;}
-.legal-modal .btn-ghost{border:1px solid var(--line);color:var(--ink);background:var(--panel);}
-.legal-modal .btn-ghost:hover{background:var(--panel-strong);border-color:rgba(255,255,255,0.2);}
-#view-home .legal-btn {padding:9px 16px;font-size:13px;}
-#view-home .legal-btn svg{width:15px;height:15px;flex:0 0 15px;}
-#view-home .legal-col-btn {color:var(--ink-dim);font-size:14px;font-weight:600;text-align:left;transition:color .3s,transform .35s var(--ease);align-self:flex-start;}
-#view-home .legal-col-btn:hover {color:var(--ink);transform:translateX(3px);}
-.legal-modal{width:min(94vw,880px);max-height:90dvh;padding:0;border:1px solid var(--line);background:linear-gradient(165deg,rgba(14,19,48,.97),rgba(5,7,15,.98));color:var(--ink);border-radius:var(--radius-lg);box-shadow:0 30px 110px #000,0 0 60px rgba(47,143,255,.18);overflow:hidden;}
-.legal-modal[open]{position:fixed;inset:50% auto auto 50%;z-index:10060;transform:translate(-50%,-50%);display:flex;flex-direction:column;animation:legalIn .45s var(--ease);}
-.legal-modal::backdrop{background:rgba(0,3,9,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
-@keyframes legalIn{from{opacity:0;transform:translate(-50%,-48%) scale(.92);}to{opacity:1;transform:translate(-50%,-50%) scale(1);}}
-.legal-modal-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px 26px 0;}
-.legal-modal-head h2{font:500 21px 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.legal-modal-close{width:38px;height:38px;flex:0 0 38px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink-dim);font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease),color .3s,border-color .3s,background .3s;}
-.legal-modal-close:hover{color:var(--ink);border-color:rgba(255,255,255,.2);background:var(--panel-strong);transform:rotate(90deg);}
-.legal-tabs{display:flex;gap:8px;padding:18px 26px 0;flex-wrap:wrap;}
-.legal-tab{padding:11px 20px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink-dim);font-weight:600;font-size:13.5px;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),color .3s,border-color .3s,background .3s;}
-.legal-tab:hover{transform:translateY(-2px);background:var(--panel-strong);border-color:rgba(255,255,255,.2);color:var(--ink);}
-.legal-tab.is-active{background:var(--grad-v);color:#04070f;border-color:transparent;box-shadow:0 10px 30px -8px rgba(47,143,255,.55);}
-.legal-tab.is-active:hover{box-shadow:0 14px 34px -6px rgba(47,143,255,.7);}
-.legal-tab::after{content:"";position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(115deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-120%) skewX(-15deg);pointer-events:none;}
-.legal-tab:hover::after{animation:shimmerSweep 1.1s ease;}
-.legal-modal-body{overflow-y:auto;padding:20px 26px;scrollbar-width:thin;scrollbar-color:rgba(47,143,255,.4) transparent;}
-.legal-modal-body::-webkit-scrollbar{width:8px;}
-.legal-modal-body::-webkit-scrollbar-thumb{background:rgba(47,143,255,.35);border-radius:999px;}
-.legal-doc{display:none;}
-.legal-doc.is-active{display:block;animation:stepIn .45s var(--ease);}
-.legal-doc .doc-kicker{font:500 11px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-3);margin-bottom:8px;}
-.legal-doc h3{font:600 26px 'Space Grotesk',sans-serif;letter-spacing:.02em;margin:0 0 6px;}
-.legal-doc .doc-meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--ink-mute);font-size:12px;padding:12px 16px;margin:16px 0 22px;border:1px solid var(--line-soft);border-left:3px solid var(--blue-2);border-radius:var(--radius-sm);background:var(--panel);}
-.legal-doc .doc-meta strong{color:var(--ink-dim);font-weight:600;}
-.legal-doc h4{font:600 16px 'Space Grotesk',sans-serif;color:var(--ink);margin:26px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--line-soft);}
-.legal-doc h5{font:600 14px 'Space Grotesk',sans-serif;color:var(--blue-3);margin:14px 0 6px;}
-.legal-doc p{color:var(--ink-dim);font-size:13.5px;line-height:1.75;margin:8px 0;}
-.legal-doc ul{margin:8px 0 12px;padding-left:0;list-style:none;display:grid;gap:6px;}
-.legal-doc ul li{color:var(--ink-dim);font-size:13px;line-height:1.6;padding-left:20px;position:relative;}
-.legal-doc ul li::before{content:"";position:absolute;left:4px;top:8px;width:6px;height:6px;border-radius:50%;background:linear-gradient(160deg,var(--blue-3),var(--blue-1));}
-.legal-doc .notice-card{border:1px solid rgba(47,143,255,.3);border-left:3px solid var(--blue-2);border-radius:var(--radius-sm);background:rgba(47,143,255,.07);padding:14px 16px;margin:14px 0;}
-.legal-doc .notice-card p{margin:6px 0;}
-.legal-doc .doc-signoff{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);text-align:center;}
-.legal-doc .doc-signoff .sign-brand{font:600 18px 'Space Grotesk',sans-serif;letter-spacing:.1em;}
-.legal-doc .doc-signoff p{font-size:12px;color:var(--ink-mute);margin:4px 0 0;}
-.legal-doc table{width:100%;border-collapse:collapse;margin:12px 0 18px;border:1px solid var(--line-soft);border-radius:var(--radius-sm);overflow:hidden;font-size:12.5px;}
-.legal-doc th{background:rgba(47,143,255,.12);color:var(--ink);font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.04em;text-transform:uppercase;text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);}
-.legal-doc td{color:var(--ink-dim);padding:10px 14px;border-bottom:1px solid var(--line-soft);line-height:1.55;vertical-align:top;}
-.legal-doc tr:last-child td{border-bottom:none;}
-.legal-doc tbody tr{transition:background .3s;}
-.legal-doc tbody tr:hover{background:var(--panel);}
-.legal-doc .doc-band{font:500 12px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-3);margin:30px 0 4px;padding-top:22px;border-top:1px solid var(--line);}
-.legal-doc .doc-band:first-child{margin-top:6px;padding-top:0;border-top:none;}
-.legal-modal-actions{display:flex;gap:10px;flex-wrap:wrap;padding:16px 26px 22px;border-top:1px solid var(--line-soft);background:rgba(5,7,15,.6);}
-.legal-modal-actions .btn{padding:11px 20px;font-size:13.5px;}
-@media (max-width:639px){
-  .legal-modal{width:calc(100vw - 1rem);max-height:92dvh;border-radius:var(--radius-md);}
-  .legal-modal-head{padding:18px 16px 0;}
-  .legal-modal-head h2{font-size:17px;}
-  .legal-tabs{padding:14px 16px 0;}
-  .legal-tab{flex:1 1 auto;text-align:center;padding:10px 12px;font-size:12.5px;}
-  .legal-modal-body{padding:16px;}
-  .legal-modal-actions{padding:14px 16px 18px;}
-  .legal-modal-actions .btn{flex:1 1 100%;justify-content:center;}
-}
-@media (prefers-reduced-motion:reduce){
-  .legal-modal[open]{animation:none;}
-  .legal-doc.is-active{animation:none;}
-}
-@media print{
-  body>*{display:none !important;}
-  body .legal-modal{display:block !important;position:static !important;width:auto;max-height:none;inset:auto;transform:none;animation:none;border:none;background:#fff;color:#000;box-shadow:none;overflow:visible;border-radius:0;}
-  body .legal-modal *{color:#000 !important;background:transparent !important;text-shadow:none !important;}
-  .legal-modal-close,.legal-tabs,.legal-modal-actions,.legal-doc:not(.is-active){display:none !important;}
-  .legal-doc.is-active{display:block !important;}
-  .legal-doc.is-active h3,.legal-doc.is-active h4,.legal-doc.is-active h5{color:#000 !important;border-color:#ccc;}
-  .legal-doc.is-active p,.legal-doc.is-active li,.legal-doc.is-active td{color:#111 !important;}
-  .legal-doc.is-active table{border-color:#ccc;}
-  .legal-doc.is-active th{background:#eee !important;color:#000 !important;}
-  .legal-doc.is-active td{border-color:#ddd !important;}
-}
+ 
 </style>
 </head>
 <body>
+<!-- ===== INTRO TRANSITION ===== -->
+<div id="introOverlay" role="button" tabindex="0" aria-label="Enter 9 Meridian">
+  <div class="intro-inner">
+    <div id="introLogo"><img id="introLogoImage" alt="9 Meridian"></div>
+    <p class="intro-prompt">Tap anywhere to enter</p>
+  </div>
+</div>
+ 
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><div class="scroll-progress-fill" id="scrollProgressFill"></div></div>
 <div class="fx-fallback" aria-hidden="true"></div>
 <canvas id="meridianFx" class="fx-canvas" aria-hidden="true"></canvas>
@@ -2827,7 +2855,7 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
 </nav>
 
 <!-- ============ FULL-SITE AUTH ENTRY ============ -->
-<div id="view-entry" class="view" aria-label="9 Meridian sign in">
+<div id="view-entry" class="view is-active" aria-label="9 Meridian sign in">
   <div class="entry-stage" id="entryStage">
     <div class="entry-grid-lines" aria-hidden="true"></div>
     <div class="entry-code-rain" id="entryCodeRain" aria-hidden="true"></div>
@@ -2846,7 +2874,6 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
     <section class="entry-access" aria-label="Access 9 Meridian">
       <div class="entry-panel">
         <h2 class="entry-panel-title">9 MERIDIAN</h2>
-        <p class="entry-auth-context" id="entryAuthContext" hidden></p>
         <div id="loginFormPanel"><div id="loginAuthOptions">
           <form class="entry-auth-form" id="emailStartForm">
             <label class="entry-field" for="loginEmail"><span class="entry-field-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17zM4 7l8 6 8-6"/></svg></span><input id="loginEmail" type="email" autocomplete="email" required placeholder="EMAIL ADDRESS" aria-label="Email address"></label>
@@ -2871,7 +2898,7 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
 <div class="entry-exit-burst" aria-hidden="true"></div>
 <dialog class="entry-feedback-dialog" id="entryFeedbackDialog" aria-labelledby="entryFeedbackTitle"><form class="entry-feedback-dialog-inner" id="entryFeedbackForm" method="dialog"><button class="entry-feedback-close" id="entryFeedbackClose" type="button" aria-label="Close feedback form">&times;</button><h2 id="entryFeedbackTitle">Leave feedback</h2><p>Tell us what would make your 9 Meridian experience better.</p><label for="entryFeedbackMessage">Your feedback<textarea id="entryFeedbackMessage" maxlength="2000" required placeholder="Share the detail that would help us improve…"></textarea></label><p class="login-status" id="entryFeedbackStatus" aria-live="polite"></p><div class="entry-feedback-actions"><button class="entry-auth-button entry-feedback-button" type="submit">Submit feedback</button></div></form></dialog>
 
-<div id="view-home" class="view is-active">
+<div id="view-home" class="view">
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
@@ -2888,6 +2915,7 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
       <a href="#pricing" class="nav-link">Pricing</a>
       <a href="#roi" class="nav-link">ROI</a>
       <a href="#demo" class="nav-link">Live Demo</a>
+      <a href="#booking" class="nav-link">Booking</a>
       <a href="#faq" class="nav-link">FAQ</a>
       <a href="#feedback" class="nav-link">Reviews</a>
       <a href="#login" class="nav-link nav-auth-mobile" id="mobileSignInLink">Sign in</a>
@@ -2897,14 +2925,14 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
     <div class="header-actions">
       <div class="auth-guest" id="authGuestActions">
         <a href="#login" class="btn btn-ghost sign-in-btn">Sign in</a>
-        <a href="#setup-form" class="btn btn-primary header-cta">Get Started</a>
+        <a href="#booking" class="btn btn-primary header-cta">Book a Demo</a>
       </div>
       <div class="auth-user" id="authUserActions" hidden>
         <button class="user-chip" id="userChip" type="button" aria-haspopup="menu" aria-expanded="false">
           <span class="user-avatar" id="headerUserAvatar">9M</span><span class="user-chip-name" id="headerUserName">Account</span>
         </button>
         <div class="user-menu" id="userMenu" role="menu">
-          <a href="#setup-form" role="menuitem">Complete setup</a>
+          <a href="#booking" role="menuitem">Book appointment</a>
           <a href="#feedback-form" role="menuitem">Give feedback</a>
           <button type="button" id="logoutButton" role="menuitem">Log out</button>
         </div>
@@ -2938,7 +2966,7 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
       <h1 class="hero-title">Every customer<br>meets a guide<br><span class="grad-text">who never sleeps.</span></h1>
       <p class="hero-sub">9 Meridian builds trained chat agents that answer questions, qualify leads, and book meetings the moment someone lands on your site — in 40+ languages, around the clock.</p>
       <div class="hero-cta-row">
-        <a href="#setup-form" class="btn btn-primary">Get Started</a>
+        <a href="#booking" class="btn btn-primary">Book a Demo</a>
         <a href="#demo" class="btn btn-ghost">Try the Live Chatbot ↓</a>
       </div>
       <div class="hero-trust">
@@ -3373,6 +3401,81 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
   </div>
 </section>
  
+<!-- ============ BOOKING ============ -->
+<section id="booking" class="booking">
+  <div class="wrap booking-inner">
+    <div class="booking-copy reveal">
+      <span class="eyebrow">Booking</span>
+      <h2>Book a 15-minute walkthrough.</h2>
+      <p>We'll show your assistant answering real questions from your site, walk through pricing, and map out a launch date. No pressure, no slides.</p>
+      <ul class="booking-points">
+        <li>See a working assistant trained on a business like yours</li>
+        <li>Get a straight answer on pricing and timeline</li>
+        <li>Leave with a plan, whether or not you move forward</li>
+      </ul>
+    </div>
+ 
+    <form class="booking-form reveal" id="bookingForm">
+      <input type="text" name="hp_field" id="bookingHoneypot" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-row">
+        <label>Full name
+          <input type="text" name="name" required placeholder="Jordan Lee">
+        </label>
+        <label>Work email
+          <input type="email" name="email" required placeholder="jordan@company.com">
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Company
+          <input type="text" name="company" required placeholder="Company name">
+        </label>
+        <label>Team size
+          <select name="size" required>
+            <option value="">Select…</option>
+            <option>1–10</option>
+            <option>11–50</option>
+            <option>51–200</option>
+            <option>200+</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Phone
+          <input type="tel" name="phone" autocomplete="tel" placeholder="+91 98765 43210">
+        </label>
+        <label>What would you like to explore?
+          <select name="topic" required>
+            <option value="">Select a topic&hellip;</option>
+            <option value="Sales and lead qualification">Sales and lead qualification</option>
+            <option value="Customer support">Customer support</option>
+            <option value="Booking automation">Booking automation</option>
+            <option value="Full AI receptionist">Full AI receptionist</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Preferred date
+          <input type="date" name="date" required>
+        </label>
+        <label>Preferred time
+          <input type="time" name="time" required>
+        </label>
+      </div>
+      <label class="full">What should we know before the call?
+        <textarea name="message" rows="3" placeholder="A little about what you're hoping to automate…"></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary form-submit">Confirm Booking</button>
+      <p class="booking-api-status" id="bookingApiStatus" aria-live="polite"></p>
+    </form>
+ 
+    <div class="booking-success" id="bookingSuccess" hidden>
+      <svg viewBox="0 0 24 24" fill="none" class="success-check"><path d="M4 12.5l5 5L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>You're booked.</h3>
+      <p id="bookingSuccessText">We'll send a calendar invite and a confirmation email shortly.</p>
+    </div>
+  </div>
+</section>
+ 
 <!-- ============ FAQ ============ -->
 <section id="faq" class="faq">
   <div class="wrap">
@@ -3505,7 +3608,7 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
   <div class="wrap cta-inner reveal">
     <div class="cta-rings" aria-hidden="true"></div>
     <h2>Give your site a front line that never clocks out.</h2>
-    <a href="#setup-form" class="btn btn-primary">Get Started</a>
+    <a href="#booking" class="btn btn-primary">Book a Demo</a>
   </div>
 </section>
  
@@ -3542,458 +3645,24 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
       <h4>Company</h4>
       <a href="#about">About</a>
       <a href="#feedback">Reviews</a>
-      <a href="#setup-form">Get Started</a>
+      <a href="#booking">Book a Demo</a>
     </div>
     <div class="footer-col">
       <h4>Get in touch</h4>
       <a href="mailto:hello@9meridian.com">9meridian.io@gmail.com</a>
-      <a href="mailto:9meridian.io@gmail.com">Talk to sales</a>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <button type="button" class="legal-col-btn" data-legal-doc="terms">Terms of Service</button>
-      <button type="button" class="legal-col-btn" data-legal-doc="refund">Refund &amp; Cancellation Policy</button>
-      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="#booking">Talk to sales</a>
     </div>
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 9 Meridian. All rights reserved.</span>
     <span class="footer-bottom-links">
       <a href="privacy-policy.html">Privacy Policy</a>
-      <button type="button" class="btn btn-ghost legal-btn" data-legal-doc="terms"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M7 21h10M12 6l-6 2.5a3.5 3.5 0 0 0 6 2.5M12 6l6 2.5a3.5 3.5 0 0 1-6 2.5M5 8.5 3 13a3 3 0 0 0 4 0L5 8.5ZM19 8.5 17 13a3 3 0 0 0 4 0l-2-4.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Terms of Service</button>
-      <button type="button" class="btn btn-ghost legal-btn" data-legal-doc="refund"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h10a6 6 0 0 1 6 6v0a6 6 0 0 1-6 6h-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Refund Policy</button>
       <span class="footer-note">Demo site — built as a working preview.</span>
     </span>
   </div>
 </footer>
 </div>
 <button class="feedback-fab" id="feedbackFab" type="button"><span aria-hidden="true">&#128172;</span> Feedback</button>
-
-<!-- ============ LEGAL & POLICIES MODAL ============ -->
-<dialog class="legal-modal" id="legalModal" aria-labelledby="legalModalTitle">
-  <div class="legal-modal-head">
-    <h2 id="legalModalTitle">Legal &amp; Policies</h2>
-    <button type="button" class="legal-modal-close" id="legalModalClose" aria-label="Close legal documents">&times;</button>
-  </div>
-  <div class="legal-tabs" role="tablist" aria-label="Legal documents">
-    <button type="button" class="legal-tab is-active" id="legalTabRefund" role="tab" aria-selected="true" aria-controls="legalDocRefund" data-legal-tab="refund">Refund &amp; Cancellation Policy</button>
-    <button type="button" class="legal-tab" id="legalTabTerms" role="tab" aria-selected="false" aria-controls="legalDocTerms" data-legal-tab="terms">Terms of Service</button>
-  </div>
-  <div class="legal-modal-body" id="legalModalBody">
-
-    <section class="legal-doc is-active" id="legalDocRefund" role="tabpanel" aria-labelledby="legalTabRefund">
-      <p class="doc-kicker">9 MERIDIAN</p>
-      <h3>Refund &amp; Cancellation Policy</h3>
-      <div class="doc-meta"><span><strong>Effective Date:</strong> [5/09/2026]</span><span><strong>Last Updated:</strong> [5/09/2026]</span></div>
-
-      <h4>1. Payment Structure</h4>
-      <p>Unless otherwise agreed in writing, 9 MERIDIAN services use a two-part payment structure: a one-time setup/implementation fee and, where applicable, a recurring monthly subscription.</p>
-      <h5>1.1 One-Time Setup / Implementation Fee</h5>
-      <p>A one-time fee may cover system configuration, automation development, AI agent configuration, workflow design, integrations, testing, deployment, customization, and other agreed implementation activities.</p>
-      <h5>1.2 Recurring Monthly Subscription</h5>
-      <p>A recurring subscription may cover ongoing operation, hosting or infrastructure, monitoring, maintenance, support, AI or automation resources, integration management, and other recurring services specified in the applicable agreement.</p>
-
-      <h4>2. 30-Day Setup Fee Refund</h4>
-      <p>The Client may request a refund of the eligible one-time setup/implementation fee within 30 calendar days of the applicable payment. The request must be submitted through an official 9 MERIDIAN communication channel within that period. The 30-day period begins when the applicable payment is successfully received.</p>
-
-      <h4>3. Conditions for a Setup Fee Refund</h4>
-      <p>A setup-fee refund is subject to: (1) a request within 30 calendar days; (2) sufficient transaction information; (3) reasonable cooperation with the refund process; (4) provision of required Client access where applicable; (5) no material breach of the applicable agreement; and (6) exclusion of third-party amounts that have already been incurred and are non-refundable. The applicable MSA, SOW, proposal, or other written agreement may specify additional conditions.</p>
-
-      <h4>4. What the Setup Refund Covers</h4>
-      <p>The 30-day refund applies only to the eligible one-time setup/implementation fee charged by 9 MERIDIAN. It does not automatically include monthly subscription payments, third-party software fees, API charges, communication charges, hosting charges, payment-processing charges that cannot reasonably be recovered, or other external costs incurred on the Client's behalf.</p>
-
-      <h4>5. Subscription Payments</h4>
-      <p>Recurring monthly subscription payments are non-refundable once charged. Cancellation does not automatically create a refund of a subscription payment already processed. Subscription fees cover the applicable billing period and are not prorated unless expressly agreed in writing.</p>
-
-      <h4>6. Cancellation</h4>
-      <p>A Client may request cancellation of future subscription periods through an official communication channel. Unless the applicable agreement states otherwise, cancellation applies to future billing periods; amounts already charged remain non-refundable; outstanding amounts remain payable; and obligations that survive termination remain in effect. Cancellation should be requested before the next billing cycle.</p>
-
-      <h4>7. Refund Request Process</h4>
-      <p>A refund request should include the Client/business name, registered account email, invoice or transaction reference, payment date, amount paid, and reason for the request. 9 MERIDIAN may request reasonable additional information needed to verify the transaction.</p>
-
-      <h4>8. Refund Processing</h4>
-      <p>After receiving a valid request, 9 MERIDIAN will review eligibility. If approved, the refund will generally be initiated using the original payment method where reasonably possible. The time for funds to appear may depend on the payment processor, bank, card issuer, or other financial institution.</p>
-
-      <h4>9. Third-Party Services</h4>
-      <p>9 MERIDIAN may use third-party services, platforms, APIs, software, hosting providers, communication providers, AI providers, and other external services. Amounts already paid to third parties that are non-refundable may not be refundable by 9 MERIDIAN.</p>
-
-      <h4>10. Client-Caused Delays</h4>
-      <p>If implementation is delayed because the Client fails to provide required information, access, approval, content, technical requirements, or other reasonable cooperation, the delay does not automatically create a right to a refund.</p>
-
-      <h4>11. Change of Mind</h4>
-      <p>A Client's decision to discontinue a service does not automatically create a refund right. The setup-fee refund provision applies subject to this Policy and the applicable agreement. Subscription payments already processed remain non-refundable unless otherwise agreed in writing or required by applicable law.</p>
-
-      <h4>12. Breach of Agreement</h4>
-      <p>If a Client materially breaches the Terms of Service, MSA, SOW, or another applicable agreement, 9 MERIDIAN may restrict, suspend, or terminate services in accordance with that agreement. A Client's breach does not automatically create a right to a refund.</p>
-
-      <h4>13. Fraudulent or Unauthorized Transactions</h4>
-      <p>If a payment is believed to have been fraudulent or unauthorized, the Client should notify 9 MERIDIAN immediately. 9 MERIDIAN may investigate suspicious transactions and suspend relevant services while the investigation is conducted. This does not limit rights that cannot legally be waived.</p>
-
-      <h4>14. Duplicate or Incorrect Charges</h4>
-      <p>If a Client believes it was charged twice for the same service or was incorrectly charged, it should contact 9 MERIDIAN promptly. Where a duplicate or genuine billing error is confirmed, the incorrectly charged amount may be refunded or otherwise corrected.</p>
-
-      <h4>15. Service Failure</h4>
-      <p>A temporary service interruption, third-party outage, API failure, technical issue, or AI error does not automatically create a refund entitlement. 9 MERIDIAN will make reasonable efforts to investigate and resolve service issues. Any remedy will be determined under the applicable agreement.</p>
-
-      <h4>16. Business Results</h4>
-      <p>Refund eligibility is not determined solely by business performance. 9 MERIDIAN does not guarantee specific revenue, lead volume, appointment volume, conversion rates, reduction in manual work, or other commercial outcomes unless expressly stated in a written agreement.</p>
-
-      <h4>17. Refund and Intellectual Property</h4>
-      <p>A refund of a setup or implementation fee does not automatically transfer ownership of 9 MERIDIAN's underlying technology. 9 MERIDIAN retains ownership of its software, source code, automation frameworks, AI systems, tools, templates, reusable workflows, methodologies, infrastructure, libraries, system architecture, and other proprietary technology. Client-specific ownership or license rights are governed by the applicable written agreement.</p>
-
-      <h4>18. Chargebacks</h4>
-      <p>Before initiating a payment dispute or chargeback, Clients are encouraged to contact 9 MERIDIAN so the issue can be investigated. Nothing prevents a Client from exercising rights that cannot legally be waived. If a chargeback is initiated, 9 MERIDIAN may provide relevant transaction and service records to the payment processor or financial institution.</p>
-
-      <h4>19. Legal Rights</h4>
-      <p>Nothing in this Policy is intended to exclude or restrict any refund, cancellation, consumer, payment, or other legal right that cannot lawfully be excluded or restricted under applicable law. Mandatory applicable law will apply to the extent required.</p>
-
-      <h4>20. Policy Changes</h4>
-      <p>9 MERIDIAN may update this Policy from time to time. Updated versions may be published on the website or otherwise communicated to Clients. For existing Clients governed by a separate written agreement, that agreement may control where it contains different refund or cancellation provisions.</p>
-
-      <h4>21. Relationship with Other Agreements</h4>
-      <p>This Policy should be read together with the 9 MERIDIAN Terms of Service, applicable MSA, SOW, proposal, invoice, order, and other applicable written contractual documents. If a signed agreement contains a specific refund or cancellation provision that conflicts with this Policy, the signed agreement will control for that Client to the extent of the conflict.</p>
-
-      <h4>22. Contact</h4>
-      <ul>
-        <li><strong>Company:</strong> 9 MERIDIAN</li>
-        <li><strong>Email:</strong> ninemeridian.io@gmail.com</li>
-        <li><strong>Website:</strong> www.9meridian.com</li>
-        <li><strong>Business Address:</strong> Bhubaneswar</li>
-      </ul>
-
-      <h4>23. Summary of Refund Terms</h4>
-      <table>
-        <thead><tr><th>Payment Type</th><th>Refund Position</th></tr></thead>
-        <tbody>
-          <tr><td>One-time setup/implementation fee</td><td>Refundable within 30 calendar days, subject to this Policy and applicable agreement</td></tr>
-          <tr><td>Monthly subscription</td><td>Non-refundable once charged</td></tr>
-          <tr><td>Future subscription periods</td><td>Can be cancelled according to applicable cancellation terms</td></tr>
-          <tr><td>Third-party costs</td><td>Generally non-refundable where already incurred and non-refundable</td></tr>
-          <tr><td>Duplicate/incorrect charge</td><td>May be corrected or refunded after verification</td></tr>
-          <tr><td>Business results not achieved</td><td>Does not automatically qualify for a refund</td></tr>
-          <tr><td>Client-caused implementation delay</td><td>Does not automatically qualify for a refund</td></tr>
-          <tr><td>Fraudulent/unauthorized transaction</td><td>Investigated separately</td></tr>
-          <tr><td>Signed MSA/SOW with different refund terms</td><td>Specific signed agreement controls</td></tr>
-        </tbody>
-      </table>
-
-      <h4>24. Acceptance</h4>
-      <p>By purchasing, accessing, or using 9 MERIDIAN services, the Client acknowledges that it has had an opportunity to review this Refund &amp; Cancellation Policy and agrees to its applicable provisions.</p>
-
-      <div class="doc-signoff">
-        <p class="sign-brand">9 MERIDIAN</p>
-        <p>AI Automation &amp; Business Integration Services</p>
-        <p>Effective Date: [5/09/2026]&nbsp;&nbsp;|&nbsp;&nbsp;Last Updated: [5/09/2026]</p>
-      </div>
-    </section>
-
-    <section class="legal-doc" id="legalDocTerms" role="tabpanel" aria-labelledby="legalTabTerms">
-      <p class="doc-kicker">9 MERIDIAN</p>
-      <h3>Terms of Service</h3>
-      <p class="doc-kicker" style="letter-spacing:.1em;">AI Automation &amp; Business Integration Services</p>
-      <div class="doc-meta">
-        <span><strong>Effective Date:</strong> [5/09/2026]</span>
-        <span><strong>Last Updated:</strong> [5/09/2026]</span>
-        <span><strong>Applies To:</strong> Website, accounts, AI automation, integrations and related services</span>
-      </div>
-
-      <div class="notice-card">
-        <h4 style="margin-top:0;border-bottom:none;padding-bottom:0;">Important Notice</h4>
-        <p>These Terms of Service ("Terms", "Terms of Service", or "Agreement") govern access to and use of the website, user accounts, AI automation services, integrations, software-enabled services, and related offerings provided by 9 MERIDIAN ("9 MERIDIAN", "we", "us", or "our").</p>
-        <p>By accessing our website, creating an account, requesting our services, purchasing a service, signing an agreement, or otherwise using a service provided by 9 MERIDIAN, you ("User", "Client", "you", or "your") agree to be bound by these Terms. If you do not agree, you must not access or use our services.</p>
-        <p>These Terms are intended for a business-focused service relationship. A separate proposal, Statement of Work (SOW), Master Services Agreement, order, invoice, or other written agreement may contain additional terms for a particular Client or project.</p>
-      </div>
-
-      <div class="notice-card">
-        <h4 style="margin-top:0;border-bottom:none;padding-bottom:0;">Document Structure</h4>
-        <ul>
-          <li>01 &mdash; Access &amp; Use</li>
-          <li>02 &mdash; Client Data &amp; Integrations</li>
-          <li>03 &mdash; AI &amp; Responsibilities</li>
-          <li>04 &mdash; Ownership &amp; Data</li>
-          <li>05 &mdash; Commercial Terms</li>
-          <li>06 &mdash; Support &amp; Liability</li>
-          <li>07 &mdash; Protection &amp; Termination</li>
-          <li>08 &mdash; General Terms</li>
-          <li>09 &mdash; Governance &amp; Acceptance</li>
-        </ul>
-      </div>
-
-      <div class="notice-card">
-        <h4 style="margin-top:0;border-bottom:none;padding-bottom:0;">Legal Review Recommendation</h4>
-        <p>Before publication, qualified legal counsel should review the privacy/data-processing, international-client, healthcare/clinic, refund, liability, and jurisdiction provisions.</p>
-      </div>
-
-      <p class="doc-band">01 &mdash; Access &amp; Use</p>
-      <h4>1. About 9 MERIDIAN</h4>
-      <p>9 MERIDIAN provides business-focused AI automation, workflow automation, software-enabled services, integrations, and related technology services.</p>
-      <p>Services may include, depending on the selected package or agreement:</p>
-      <ul>
-        <li>AI-powered customer communication;</li>
-        <li>appointment and booking automation;</li>
-        <li>lead capture and qualification;</li>
-        <li>automated responses and follow-ups;</li>
-        <li>workflow and business-process automation;</li>
-        <li>CRM, calendar, email, website and WhatsApp-related integrations;</li>
-        <li>AI agents and conversational systems;</li>
-        <li>notifications, data synchronization, and other agreed automation services.</li>
-      </ul>
-      <p>Specific services may be defined in a proposal, SOW, order, invoice, or separate written agreement. Where such an agreement conflicts with these Terms, the specific written agreement controls for that service relationship to the extent of the conflict.</p>
-
-      <h4>2. Eligibility and Business Use</h4>
-      <p>The website may be publicly accessible for informational purposes. Purchase and use of business services are intended primarily for legitimate businesses, organizations, professionals, and commercial users.</p>
-      <p>By using our services, you represent that:</p>
-      <ul>
-        <li>you have authority to enter into a binding agreement;</li>
-        <li>you are legally capable of entering into such an agreement;</li>
-        <li>information provided is accurate and not misleading;</li>
-        <li>you have authority to provide access to connected business systems;</li>
-        <li>your use complies with applicable laws and regulations.</li>
-      </ul>
-
-      <h4>3. Website Access</h4>
-      <p>You may access public portions of our website for legitimate purposes. You may not:</p>
-      <ul>
-        <li>interfere with operation or security;</li>
-        <li>attempt unauthorized access or circumvent security controls;</li>
-        <li>introduce malware or harmful software;</li>
-        <li>scrape or systematically extract content without authorization;</li>
-        <li>use automated systems in a way that adversely affects infrastructure;</li>
-        <li>impersonate another person or organization;</li>
-        <li>use the website for fraudulent, unlawful, or abusive purposes.</li>
-      </ul>
-      <p>We may modify, suspend, restrict, or discontinue portions of the website at any time.</p>
-
-      <h4>4. User Accounts</h4>
-      <p>Certain services require an account. You are responsible for accurate account information, credential security, authorized use, and promptly notifying 9 MERIDIAN if you reasonably believe an account has been compromised.</p>
-      <p>You must not share, sell, transfer, or improperly provide account access to unauthorized persons. We may suspend or restrict an account where we reasonably believe it is being used unlawfully, fraudulently, abusively, or in violation of these Terms.</p>
-
-      <p class="doc-band">02 &mdash; Client Data &amp; Integrations</p>
-      <h4>5. Information Provided by Users</h4>
-      <p>You may provide information through our website, account, forms, onboarding process, communications, or integrations. This may include name, email, telephone number, company information, business requirements, project information, files, documents, billing information, configuration information, connected-service information, and other information reasonably necessary to provide services.</p>
-      <p>You are responsible for ensuring information supplied to 9 MERIDIAN is accurate, lawful, and provided with appropriate authorization. You must not knowingly provide fraudulent, malicious, unlawful, or system-compromising information.</p>
-
-      <h4>6. Client System Access and Authorization</h4>
-      <p>Certain automation services require 9 MERIDIAN to access systems controlled by the Client, including WhatsApp, websites, Gmail or other email services, calendars, CRMs, forms, communication platforms, APIs, databases, and other business systems.</p>
-      <p>By providing access, the Client represents that it has authority to provide it and authorizes 9 MERIDIAN to use the access solely as reasonably necessary to configure, operate, maintain, troubleshoot, or support the agreed services.</p>
-      <p>The Client remains the owner and controller of its third-party accounts unless otherwise agreed. Providing access does not transfer ownership of those accounts to 9 MERIDIAN. The Client remains responsible for required third-party licenses, subscriptions, permissions, and account standing.</p>
-
-      <h4>7. Third-Party Services and Integrations</h4>
-      <p>Services may depend on third-party platforms, software, APIs, communication providers, hosting providers, AI providers, payment processors, calendars, email providers, or other external services.</p>
-      <p>Third-party services are controlled by their providers and may have separate terms, privacy policies, fees, limitations, outages, or technical restrictions. 9 MERIDIAN does not control third-party services and cannot guarantee they remain available, unchanged, compatible, or error-free.</p>
-      <p>Providers may change APIs, pricing, functionality, technical requirements, usage limits, policies, permissions, or availability. Such changes may affect an automation.</p>
-      <p>Where reasonably practicable, 9 MERIDIAN may adapt an affected automation. Additional work or charges may apply where a third-party change requires substantial redevelopment outside the agreed scope.</p>
-
-      <p class="doc-band">03 &mdash; AI &amp; Responsibilities</p>
-      <h4>8. AI Services and Automation</h4>
-      <p>9 MERIDIAN may use artificial intelligence, machine learning, automation technologies, third-party AI models, rules-based systems, and software integrations to provide services.</p>
-      <p>AI-generated or automated outputs may not always be accurate, complete, appropriate, or suitable for every situation. AI systems may produce incorrect information, incomplete responses, unexpected responses, misunderstood requests, or technical errors.</p>
-      <p>The Client remains responsible for reviewing and approving intended uses of automated outputs where appropriate. Automation assists business operations and is not a substitute for professional judgment where such judgment is required.</p>
-      <p>Unless expressly agreed in writing, 9 MERIDIAN does not guarantee that an AI system will understand every request, produce perfect responses, convert every lead, book every appointment, eliminate human intervention, operate without errors, or produce a particular business result.</p>
-      <p>Where appropriate, automation may be designed to escalate conversations or tasks to human personnel.</p>
-
-      <h4>9. High-Risk and Professional Decisions</h4>
-      <p>Unless expressly agreed in writing, 9 MERIDIAN's AI automation should not be relied upon as the sole basis for medical diagnosis, medical treatment decisions, legal decisions, financial decisions, emergency decisions, safety-critical decisions, employment decisions, or other decisions requiring qualified professional judgment.</p>
-      <p>The Client is responsible for appropriate human review and escalation procedures for sensitive or high-risk workflows.</p>
-
-      <h4>10. Client Responsibilities</h4>
-      <p>The Client is responsible for:</p>
-      <ul>
-        <li>providing accurate information and necessary access;</li>
-        <li>maintaining active third-party accounts;</li>
-        <li>paying applicable third-party charges;</li>
-        <li>reviewing requirements and approving workflows where applicable;</li>
-        <li>ensuring lawful use;</li>
-        <li>obtaining required permissions and consents;</li>
-        <li>ensuring automated communications are lawful;</li>
-        <li>maintaining appropriate human oversight;</li>
-        <li>informing 9 MERIDIAN of material changes affecting the service.</li>
-      </ul>
-
-      <h4>11. Prohibited Activities</h4>
-      <p>You must not use the website, account, services, or automation systems to:</p>
-      <ul>
-        <li>violate laws or regulations;</li>
-        <li>commit or facilitate fraud;</li>
-        <li>impersonate another person or organization;</li>
-        <li>distribute malware or malicious code;</li>
-        <li>conduct unauthorized access attempts;</li>
-        <li>engage in abusive or harassing conduct;</li>
-        <li>send unlawful spam or unsolicited communications;</li>
-        <li>infringe intellectual-property or privacy rights;</li>
-        <li>collect or process information without authorization;</li>
-        <li>circumvent platform restrictions or exploit vulnerabilities;</li>
-        <li>reverse engineer proprietary systems;</li>
-        <li>resell access without authorization;</li>
-        <li>create harmful or deceptive automated communications.</li>
-      </ul>
-
-      <p class="doc-band">04 &mdash; Ownership &amp; Data</p>
-      <h4>12. Intellectual Property</h4>
-      <h5>12.1 9 MERIDIAN Technology</h5>
-      <p>9 MERIDIAN retains all rights, title, and interest in its underlying technology and intellectual property, including software, source code, automation frameworks, AI-agent architecture, internal tools, templates, reusable components, methodologies, processes, know-how, documentation, system architecture, libraries, configurations, improvements, and other technology developed or used by 9 MERIDIAN.</p>
-      <p>Nothing in these Terms transfers ownership of such technology to the Client.</p>
-      <h5>12.2 Client Materials</h5>
-      <p>The Client retains ownership of materials, data, trademarks, content, information, and other intellectual property that it independently owns and provides to 9 MERIDIAN.</p>
-      <h5>12.3 Client-Specific Deliverables</h5>
-      <p>Subject to full payment, ownership of specifically agreed Client-owned deliverables may transfer to the Client where expressly stated in the applicable proposal, SOW, or written agreement.</p>
-      <p>Unless expressly transferred in writing, reusable technology, frameworks, tools, templates, code, systems, and underlying infrastructure remain the property of 9 MERIDIAN.</p>
-      <h5>12.4 License to Operate</h5>
-      <p>The Client grants 9 MERIDIAN a limited, non-exclusive right to use Client-provided materials and information solely as reasonably necessary to provide the agreed services.</p>
-
-      <h4>13. Confidentiality</h4>
-      <p>Each party should take reasonable measures to protect confidential information received from the other party. Confidential information may include business strategies, technical information, credentials or access information, pricing, customer information, internal processes, proprietary systems, non-public documentation, and other information reasonably understood to be confidential.</p>
-      <p>Confidential information should not be disclosed to unauthorized third parties except where required by law, necessary to provide services through authorized service providers, authorized by the disclosing party, or publicly available through no breach of these Terms.</p>
-      <p>These obligations do not prevent use of information independently developed or lawfully obtained from another source.</p>
-
-      <h4>14. Data and Privacy</h4>
-      <p>9 MERIDIAN may collect and process information necessary to operate its website, accounts, communications, and services. Handling of personal information will be governed by the applicable Privacy Policy in addition to these Terms.</p>
-      <p>The Client is responsible for determining whether its intended use requires specific notices, consents, agreements, disclosures, or other legal requirements. Where the Client provides personal information belonging to customers, employees, patients, leads, or others, the Client is responsible for ensuring an appropriate legal basis and authorization.</p>
-
-      <h4>15. Security</h4>
-      <p>9 MERIDIAN will take reasonable measures appropriate to the service to protect systems and information under its control. No internet-connected system, software, integration, or transmission method can be guaranteed completely secure. The Client is responsible for secure credentials and authorized access.</p>
-
-      <p class="doc-band">05 &mdash; Commercial Terms</p>
-      <h4>16. Fees and Payment</h4>
-      <p>Unless otherwise agreed in writing, the service model consists of (1) a one-time setup/implementation fee and (2) a recurring monthly subscription fee.</p>
-      <p>Amounts, billing dates, scope, and payment conditions will be communicated through the relevant proposal, order, invoice, SOW, or agreement.</p>
-      <p>The Client must pay applicable fees on time. Third-party costs, software subscriptions, API charges, communication charges, hosting fees, or other external costs may be separate unless expressly included.</p>
-
-      <h4>17. Setup Fee Refund Policy</h4>
-      <p>The Client may request a refund of the one-time setup/implementation fee within 30 calendar days of the applicable payment, subject to the conditions stated in the applicable service agreement, proposal, or SOW.</p>
-      <p>A refund request must be submitted through an official 9 MERIDIAN communication channel. Where implementation work has already been performed, the refund may be subject to reasonable conditions stated in the applicable agreement.</p>
-      <p>Unless expressly stated otherwise, this refund provision applies to the eligible setup/implementation fee and does not automatically apply to recurring subscription charges.</p>
-
-      <h4>18. Subscription and Cancellation</h4>
-      <p>Recurring subscription fees are generally non-refundable once charged. A Client may cancel future subscription periods in accordance with the cancellation procedure and notice requirements communicated for its service.</p>
-      <p>Cancellation does not automatically create a right to reimbursement of amounts already charged. Outstanding amounts incurred before termination remain payable.</p>
-
-      <h4>19. Service Availability</h4>
-      <p>9 MERIDIAN will make reasonable efforts to provide and maintain services. Uninterrupted or completely error-free operation cannot be guaranteed.</p>
-      <p>Interruptions may result from maintenance, internet failures, hosting failures, API outages, third-party platform outages, third-party changes, cybersecurity incidents, infrastructure failures, force majeure events, regulatory changes, or other circumstances beyond reasonable control.</p>
-      <p>Where reasonably practicable, we may investigate and restore affected services.</p>
-
-      <p class="doc-band">06 &mdash; Support &amp; Liability</p>
-      <h4>20. Service Modifications</h4>
-      <p>We may modify, improve, replace, suspend, or discontinue service features where reasonably necessary. Material changes affecting an active Client's agreed service will, where reasonably practicable, be communicated.</p>
-      <p>If a third-party provider changes its service in a way that materially affects an automation, 9 MERIDIAN may modify the implementation, substitute an integration, or discontinue affected functionality where continued operation is not reasonably possible. Additional development charges may apply for substantial out-of-scope changes.</p>
-
-      <h4>21. Support and Maintenance</h4>
-      <p>Support depends on the service package and applicable agreement and may include troubleshooting, configuration assistance, reasonable maintenance, monitoring of agreed workflows, correction of certain implementation issues, and reasonable assistance with supported integrations.</p>
-      <p>Support does not automatically include unlimited redevelopment, new features, major workflow changes, third-party migration, or unrelated technical work unless expressly included.</p>
-
-      <h4>22. Warranties and Disclaimers</h4>
-      <p>To the maximum extent permitted by applicable law, services are provided on an "as available" and "as is" basis.</p>
-      <p>9 MERIDIAN does not guarantee that services will always be available, automations will be error-free, AI responses will be accurate, integrations will remain compatible, leads will convert, appointments will result from automation, or any particular revenue or business outcome will be achieved.</p>
-      <p>We do not make guarantees of business performance unless expressly stated in a written agreement. The Client remains responsible for decisions made using information or outputs produced through the services.</p>
-
-      <h4>23. Limitation of Liability</h4>
-      <p>To the maximum extent permitted by law, 9 MERIDIAN will not be liable for indirect, incidental, consequential, special, exemplary, or punitive damages, including loss of profits, revenue, business opportunities, goodwill, or anticipated savings arising from or related to services.</p>
-      <p>This limitation may include losses arising from third-party outages, API changes, platform restrictions, inaccurate AI outputs, communication failures, internet failures, Client configuration, unauthorized use of Client accounts, business decisions based on automated outputs, or circumstances outside reasonable control.</p>
-      <p>To the maximum extent permitted by law, 9 MERIDIAN's aggregate liability arising from a service will be limited to fees actually paid by the Client for the affected service, unless a separate written agreement expressly provides otherwise.</p>
-      <p>Nothing excludes liability that cannot lawfully be excluded or limited.</p>
-
-      <p class="doc-band">07 &mdash; Protection &amp; Termination</p>
-      <h4>24. Indemnification</h4>
-      <p>To the maximum extent permitted by law, the Client agrees to defend, indemnify, and hold harmless 9 MERIDIAN and its officers, personnel, contractors, and service providers from claims, losses, liabilities, damages, costs, and reasonable expenses arising from:</p>
-      <ul>
-        <li>the Client's unlawful use of services;</li>
-        <li>violation of these Terms;</li>
-        <li>unauthorized access supplied by the Client;</li>
-        <li>infringement through Client-provided materials;</li>
-        <li>unlawful communications sent through Client-controlled workflows;</li>
-        <li>failure to obtain required permissions or consents;</li>
-        <li>misuse of services by the Client or authorized users.</li>
-      </ul>
-      <p>This does not apply to the extent a claim is caused by 9 MERIDIAN's own unlawful conduct or liability that cannot legally be transferred.</p>
-
-      <h4>25. Suspension and Termination</h4>
-      <p>9 MERIDIAN may suspend or terminate access where reasonably necessary if the Client materially breaches these Terms, fees remain unpaid, services are used unlawfully, an account creates a security risk, the Client abuses the platform, required third-party access is revoked, continued operation would violate law, or suspension is necessary to protect 9 MERIDIAN, its systems, users, or third parties.</p>
-      <p>Where reasonably practicable, we may provide notice and an opportunity to remedy a breach before termination.</p>
-      <p>Upon termination, access may cease; outstanding fees remain payable; and confidentiality, intellectual-property, liability, dispute, and other provisions intended by their nature to survive remain effective.</p>
-
-      <h4>26. Force Majeure</h4>
-      <p>9 MERIDIAN will not be responsible for delays or failures caused by circumstances beyond reasonable control, including natural disasters, severe weather, war, terrorism, civil unrest, government actions, regulatory changes, widespread internet outages, infrastructure failures, major cybersecurity incidents, third-party platform failures, telecommunications failures, power outages, or other uncontrollable events.</p>
-      <p>Where reasonably practicable, the affected party will provide notice and take reasonable steps to mitigate impact.</p>
-
-      <h4>27. Changes to These Terms</h4>
-      <p>We may update these Terms from time to time. Updated Terms will be posted on the website or otherwise communicated through appropriate channels and will generally become effective on the stated effective date.</p>
-      <p>Continued use after the effective date may constitute acceptance of revised Terms, subject to applicable law. For existing Clients governed by a separate written agreement, that agreement may control where it contains different contractual provisions.</p>
-
-      <p class="doc-band">08 &mdash; General Terms</p>
-      <h4>28. Electronic Communications</h4>
-      <p>By using our website or services, you consent to electronic communications relating to account activity, service administration, invoices, security, technical notices, service updates, contractual matters, and other communications reasonably necessary to provide services.</p>
-      <p>Electronic communications may satisfy legal requirements for written communications where permitted by applicable law.</p>
-
-      <h4>29. Notices</h4>
-      <p>Official notices to 9 MERIDIAN should be sent through official contact details published on the website or the communication channel specified in the applicable Client agreement. Notices to Clients may be sent to the email address or other contact information associated with the account or service relationship. The Client must keep contact information current.</p>
-
-      <h4>30. Severability</h4>
-      <p>If any provision is invalid, unlawful, or unenforceable, it will be interpreted or modified to the minimum extent necessary to make it enforceable where legally possible. Remaining provisions continue in effect.</p>
-
-      <h4>31. No Waiver</h4>
-      <p>Failure by 9 MERIDIAN to enforce a provision does not constitute a waiver of the right to enforce it or another provision in the future.</p>
-
-      <h4>32. Assignment</h4>
-      <p>The Client may not assign or transfer rights or obligations under these Terms without prior written authorization from 9 MERIDIAN, except where permitted by law. 9 MERIDIAN may assign or transfer these Terms in connection with restructuring, merger, acquisition, sale of assets, or similar transaction, subject to applicable law.</p>
-
-      <h4>33. Independent Contractor Relationship</h4>
-      <p>Use of services does not create a partnership, joint venture, employment, agency, or franchise relationship unless expressly agreed in writing. Neither party may bind the other except where expressly authorized.</p>
-
-      <h4>34. Entire Agreement</h4>
-      <p>These Terms, together with any applicable Privacy Policy, proposal, SOW, order, invoice, MSA, and other written agreements expressly incorporated into the Client relationship, constitute the applicable agreement regarding the relevant services.</p>
-      <p>If there is a conflict between these Terms and a separately signed agreement, the separately signed agreement controls to the extent of the conflict.</p>
-
-      <p class="doc-band">09 &mdash; Governance &amp; Acceptance</p>
-      <h4>35. Governing Law</h4>
-      <p>These Terms are governed by and interpreted in accordance with the laws of India, without regard to conflict-of-law principles to the extent permitted by applicable law.</p>
-
-      <h4>36. Dispute Resolution</h4>
-      <p>In the event of a dispute arising from or relating to these Terms or the services, the parties will first attempt to resolve the dispute through good-faith negotiation.</p>
-      <p>If the dispute cannot be resolved through reasonable negotiation, it may be brought before the competent courts of India having appropriate jurisdiction.</p>
-      <p>Nothing in this section prevents a party from seeking urgent legal or injunctive relief where necessary to protect its rights.</p>
-
-      <h4>37. Contact</h4>
-      <ul>
-        <li><strong>Company:</strong> 9 MERIDIAN</li>
-        <li><strong>Email:</strong> official@9meridian.com</li>
-        <li><strong>Website:</strong> www.9meridian.com</li>
-        <li><strong>Business Address:</strong> [Insert registered/business address]</li>
-      </ul>
-
-      <h4>38. Acceptance</h4>
-      <p>By accessing the website, creating an account, submitting information, purchasing services, signing an agreement, or using services provided by 9 MERIDIAN, you acknowledge that:</p>
-      <ul>
-        <li>you have read these Terms;</li>
-        <li>you understand these Terms;</li>
-        <li>you have authority to accept them where applicable;</li>
-        <li>you agree to be legally bound by them.</li>
-      </ul>
-
-      <div class="notice-card">
-        <h4 style="margin-top:0;border-bottom:none;padding-bottom:0;">Publication Checklist</h4>
-        <ul>
-          <li>Confirm the exact legal entity name.</li>
-          <li>Insert the official email and business address.</li>
-          <li>Publish a Privacy Policy consistent with these Terms.</li>
-          <li>Confirm the 30-day refund mechanics in the MSA/SOW.</li>
-          <li>Obtain legal review before public publication.</li>
-        </ul>
-      </div>
-
-      <div class="doc-signoff">
-        <p class="sign-brand">9 MERIDIAN</p>
-        <p>AI Automation &amp; Business Integration Services</p>
-        <p>Effective Date: [5/09/2026]&nbsp;&nbsp;|&nbsp;&nbsp;Last Updated: [5/09/2026]</p>
-      </div>
-    </section>
-  </div>
-  <div class="legal-modal-actions">
-    <button type="button" class="btn btn-primary" id="legalPrintBtn">Print / Save PDF</button>
-    <a class="btn btn-ghost" href="mailto:official@9meridian.com?subject=9%20MERIDIAN%20-%20Legal%20%26%20Policies%20Question">Contact Support</a>
-    <button type="button" class="btn btn-ghost" id="legalCloseBtn">Close</button>
-  </div>
-</dialog>
 <div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
  
  
@@ -4585,12 +4254,11 @@ a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:t
      { success, message?, data?: { token, user: { name, email, picture?, sub }, exp? } }
 
    POST /api/feedback          { name?, email?, rating, message, page_context }
+   POST /api/appointments      { token, name, email, phone, company, topic, datetime }
 */
 window.NINE_MERIDIAN_CONFIG = Object.freeze({
-  // The website is served by this API in production, so use the current origin
-  // instead of a development-only localhost address.
-  BACKEND_URL: window.location.origin,
-  GOOGLE_CLIENT_ID: 'TODO_REPLACE_WITH_GOOGLE_OAUTH_WEB_CLIENT_ID.apps.googleusercontent.com',
+  BACKEND_URL: 'http://127.0.0.1:8085',
+  GOOGLE_CLIENT_ID: window.NINE_MERIDIAN_RUNTIME_CONFIG?.googleClientId || '',
   AUTH_MODE: 'popup',
   OAUTH_REDIRECT_URI: 'TODO_REPLACE_WITH_OAUTH_REDIRECT_URI',
   THREE_MODULE_URL: 'https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js',
@@ -4601,6 +4269,7 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     emailStart: '/api/auth/email/start',
     emailVerify: '/api/auth/email/verify',
     feedback: '/api/feedback',
+    appointments: '/api/appointments',
     createOrder: '/api/payments/razorpay/create-order',
     verifyPayment: '/api/payments/razorpay/verify',
     googleConnect: '/api/google/connect',
@@ -4862,6 +4531,411 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
   document.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', () => sendMessage(chip.dataset.msg));
   });
+ 
+  /* ---- booking form ---- */
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingSuccess = document.getElementById('bookingSuccess');
+  const bookingSuccessText = document.getElementById('bookingSuccessText');
+ 
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (typeof window.NineMeridianHandleBooking === 'function'){
+      window.NineMeridianHandleBooking({form:bookingForm, success:bookingSuccess, successText:bookingSuccessText});
+      return;
+    }
+    const data = new FormData(bookingForm);
+    // Honeypot check — bots fill hidden fields, humans never see them.
+    if ((data.get('hp_field') || '').toString().trim() !== ''){
+      return;
+    }
+    const name = (data.get('name') || '').toString().split(' ')[0] || 'there';
+    const date = data.get('date');
+    const time = data.get('time');
+    bookingSuccessText.textContent = date && time
+      ? `Thanks, ${name} — we'll see you on ${date} at ${time}. A calendar invite is on its way to your inbox.`
+      : `Thanks, ${name} — a calendar invite is on its way to your inbox.`;
+    bookingForm.hidden = true;
+    bookingSuccess.hidden = false;
+  });
+
+  /* ===== INTRO TRANSITION ===== */
+  (function initIntroTransition(){
+    const overlay = document.getElementById('introOverlay');
+    const logo = document.getElementById('introLogoImage');
+    const prompt = overlay && overlay.querySelector('.intro-prompt');
+    if (!overlay || !logo || !prompt) return;
+
+    const STORAGE_KEY = 'introPlayed';
+    let alreadyPlayed = false;
+    try { alreadyPlayed = sessionStorage.getItem(STORAGE_KEY) === '1'; } catch (_) {}
+    if (alreadyPlayed){
+      overlay.remove();
+      return;
+    }
+
+    logo.src = LOGO_SRC;
+    const root = document.documentElement;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || new URLSearchParams(location.search).get('motion') === 'reduce';
+    const lockedElements = [];
+    let state = 'idle';
+    let particleCanvas = null;
+    let animationFrame = 0;
+
+    root.classList.add('intro-active','intro-site-prep');
+
+    Array.from(document.body.children).forEach((element) => {
+      if (!(element instanceof HTMLElement) || element === overlay || element.tagName === 'SCRIPT') return;
+      lockedElements.push({element, hadInert:element.hasAttribute('inert')});
+      element.setAttribute('inert','');
+    });
+
+    function rememberPlayed(){
+      try { sessionStorage.setItem(STORAGE_KEY,'1'); } catch (_) {}
+    }
+
+    function removeInputGuards(){
+      document.removeEventListener('pointerdown',guardInput,true);
+      document.removeEventListener('click',guardInput,true);
+      document.removeEventListener('keydown',guardInput,true);
+      document.removeEventListener('touchstart',guardInput,true);
+    }
+
+    function unlockSite(){
+      lockedElements.forEach(({element,hadInert}) => {
+        if (!hadInert) element.removeAttribute('inert');
+      });
+      root.classList.remove('intro-active','intro-site-prep','intro-site-revealing');
+    }
+
+    function finish(){
+      if (state === 'done') return;
+      state = 'done';
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      if (particleCanvas) particleCanvas.remove();
+      overlay.remove();
+      removeInputGuards();
+      unlockSite();
+      window.dispatchEvent(new CustomEvent('9m:introcomplete'));
+    }
+
+    function revealSite(){
+      root.classList.add('intro-site-revealing');
+    }
+
+    function cssFade(){
+      if (state === 'done') return;
+      state = 'animating';
+      overlay.setAttribute('aria-hidden','true');
+      overlay.removeAttribute('tabindex');
+      revealSite();
+      requestAnimationFrame(() => overlay.classList.add('is-fading'));
+      window.setTimeout(finish,reducedMotion ? 430 : 480);
+    }
+
+    function guardInput(event){
+      if (state === 'done') return;
+      if (event.type === 'keydown' && ['Shift','Control','Alt','Meta','CapsLock'].includes(event.key)) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (state === 'idle') start();
+    }
+
+    document.addEventListener('pointerdown',guardInput,true);
+    document.addEventListener('click',guardInput,true);
+    document.addEventListener('keydown',guardInput,true);
+    if (!('PointerEvent' in window)) document.addEventListener('touchstart',guardInput,{capture:true,passive:false});
+
+    async function ensureLogoReady(){
+      if (logo.complete && logo.naturalWidth) return;
+      if (typeof logo.decode === 'function'){
+        await logo.decode();
+        return;
+      }
+      await new Promise((resolve,reject) => {
+        logo.addEventListener('load',resolve,{once:true});
+        logo.addEventListener('error',reject,{once:true});
+      });
+    }
+
+    function createParticleField(){
+      const width = Math.max(1,window.innerWidth);
+      const height = Math.max(1,window.innerHeight);
+      const dpr = Math.min(2,Math.max(1,window.devicePixelRatio || 1));
+      const raster = document.createElement('canvas');
+      raster.width = Math.round(width*dpr);
+      raster.height = Math.round(height*dpr);
+      const rasterContext = raster.getContext('2d',{willReadFrequently:true});
+      if (!rasterContext) throw new Error('Canvas 2D is unavailable');
+
+      rasterContext.setTransform(dpr,0,0,dpr,0,0);
+      const logoRect = logo.getBoundingClientRect();
+      const promptRect = prompt.getBoundingClientRect();
+      rasterContext.save();
+      rasterContext.shadowColor = 'rgba(80,154,255,.28)';
+      rasterContext.shadowBlur = 14;
+      rasterContext.drawImage(logo,logoRect.left,logoRect.top,logoRect.width,logoRect.height);
+      rasterContext.restore();
+
+      const promptStyle = getComputedStyle(prompt);
+      rasterContext.font = `${promptStyle.fontWeight} ${promptStyle.fontSize} ${promptStyle.fontFamily}`;
+      rasterContext.textAlign = 'center';
+      rasterContext.textBaseline = 'middle';
+      rasterContext.fillStyle = promptStyle.color;
+      rasterContext.shadowColor = 'rgba(127,211,255,.3)';
+      rasterContext.shadowBlur = 9;
+      const promptText = prompt.textContent.trim().toUpperCase();
+      const promptX = promptRect.left + promptRect.width/2;
+      const promptY = promptRect.top + promptRect.height/2;
+      rasterContext.fillText(promptText,promptX,promptY);
+      const textWidth = rasterContext.measureText(promptText).width;
+      rasterContext.beginPath();
+      rasterContext.arc(promptX-textWidth/2-12,promptY,2.5,0,Math.PI*2);
+      rasterContext.fillStyle = '#7fd3ff';
+      rasterContext.fill();
+
+      const pixels = rasterContext.getImageData(0,0,raster.width,raster.height).data;
+      const minCssX = Math.max(0,Math.min(logoRect.left,promptRect.left)-28);
+      const maxCssX = Math.min(width,Math.max(logoRect.right,promptRect.right)+28);
+      const minCssY = Math.max(0,Math.min(logoRect.top,promptRect.top)-28);
+      const maxCssY = Math.min(height,Math.max(logoRect.bottom,promptRect.bottom)+28);
+      const minX = Math.floor(minCssX*dpr);
+      const maxX = Math.ceil(maxCssX*dpr);
+      const minY = Math.floor(minCssY*dpr);
+      const maxY = Math.ceil(maxCssY*dpr);
+      const targetCount = Math.min(16000,Math.max(6500,Math.round(width*height/120)));
+      let scanStep = dpr > 1.35 ? 2 : 1;
+      let candidateCount = 0;
+      let minDiagonal = Infinity;
+      let maxDiagonal = -Infinity;
+
+      function countCandidates(){
+        candidateCount = 0;
+        minDiagonal = Infinity;
+        maxDiagonal = -Infinity;
+        for (let y=minY;y<maxY;y+=scanStep){
+          for (let x=minX;x<maxX;x+=scanStep){
+            if (pixels[(y*raster.width+x)*4+3] < 34) continue;
+            candidateCount++;
+            const diagonal = x/dpr+y/dpr;
+            if (diagonal < minDiagonal) minDiagonal = diagonal;
+            if (diagonal > maxDiagonal) maxDiagonal = diagonal;
+          }
+        }
+      }
+
+      countCandidates();
+      if (candidateCount < 6500 && scanStep > 1){
+        scanStep = 1;
+        countCandidates();
+      }
+      if (!candidateCount) throw new Error('No intro pixels could be sampled');
+
+      const count = Math.min(targetCount,candidateCount);
+      const sourceX = new Float32Array(count);
+      const sourceY = new Float32Array(count);
+      const sourceR = new Uint8Array(count);
+      const sourceG = new Uint8Array(count);
+      const sourceB = new Uint8Array(count);
+      const sourceBin = new Uint8Array(count);
+      let accumulator = 0;
+      let selected = 0;
+
+      for (let y=minY;y<maxY && selected<count;y+=scanStep){
+        for (let x=minX;x<maxX && selected<count;x+=scanStep){
+          const index = (y*raster.width+x)*4;
+          if (pixels[index+3] < 34) continue;
+          accumulator += count;
+          if (accumulator < candidateCount) continue;
+          accumulator -= candidateCount;
+          const r = pixels[index];
+          const g = pixels[index+1];
+          const b = pixels[index+2];
+          sourceX[selected] = x/dpr;
+          sourceY[selected] = y/dpr;
+          sourceR[selected] = r;
+          sourceG[selected] = g;
+          sourceB[selected] = b;
+          sourceBin[selected] = ((r>>6)<<4)|((g>>6)<<2)|(b>>6);
+          selected++;
+        }
+      }
+
+      const binCounts = new Uint32Array(64);
+      for (let i=0;i<count;i++) binCounts[sourceBin[i]]++;
+      const binOffsets = new Uint32Array(65);
+      for (let bin=0;bin<64;bin++) binOffsets[bin+1] = binOffsets[bin]+binCounts[bin];
+      const binCursor = binOffsets.slice(0,64);
+      const x0 = new Float32Array(count);
+      const y0 = new Float32Array(count);
+      const vx = new Float32Array(count);
+      const vy = new Float32Array(count);
+      const delay = new Float32Array(count);
+      const life = new Float32Array(count);
+      const size = new Float32Array(count);
+      const angle = new Float32Array(count);
+      const spin = new Float32Array(count);
+      const phase = new Float32Array(count);
+      const frequency = new Float32Array(count);
+      const colorBin = new Uint8Array(count);
+      const paletteR = new Uint32Array(64);
+      const paletteG = new Uint32Array(64);
+      const paletteB = new Uint32Array(64);
+      const paletteCount = new Uint32Array(64);
+      const diagonalSpan = Math.max(1,maxDiagonal-minDiagonal);
+
+      for (let i=0;i<count;i++){
+        const bin = sourceBin[i];
+        const target = binCursor[bin]++;
+        const randomA = Math.random();
+        const randomB = Math.random();
+        x0[target] = sourceX[i];
+        y0[target] = sourceY[i];
+        vx[target] = 34+randomA*105;
+        vy[target] = -42-randomB*88;
+        delay[target] = ((sourceX[i]+sourceY[i]-minDiagonal)/diagonalSpan)*1.18+Math.random()*.075;
+        life[target] = .62+Math.random()*.34;
+        size[target] = .8+Math.random()*1.8;
+        angle[target] = Math.random()*Math.PI*2;
+        spin[target] = (Math.random()-.5)*8.5;
+        phase[target] = Math.random()*Math.PI*2;
+        frequency[target] = 4+Math.random()*7;
+        colorBin[target] = bin;
+        paletteR[bin] += sourceR[i];
+        paletteG[bin] += sourceG[i];
+        paletteB[bin] += sourceB[i];
+        paletteCount[bin]++;
+      }
+
+      const palette = new Array(64);
+      for (let bin=0;bin<64;bin++){
+        const divisor = Math.max(1,paletteCount[bin]);
+        palette[bin] = `rgb(${Math.round(paletteR[bin]/divisor)},${Math.round(paletteG[bin]/divisor)},${Math.round(paletteB[bin]/divisor)})`;
+      }
+
+      const canvas = document.createElement('canvas');
+      canvas.className = 'intro-particle-canvas';
+      canvas.setAttribute('aria-hidden','true');
+      canvas.dataset.particleCount = String(count);
+      canvas.dataset.dpr = String(dpr);
+      canvas.width = Math.round(width*dpr);
+      canvas.height = Math.round(height*dpr);
+      const context = canvas.getContext('2d',{alpha:true,desynchronized:true});
+      if (!context) throw new Error('Particle canvas is unavailable');
+      context.setTransform(dpr,0,0,dpr,0,0);
+      context.lineCap = 'round';
+      context.lineWidth = 1.15;
+
+      return {
+        canvas,context,width,height,count,dpr,binOffsets,palette,x0,y0,vx,vy,delay,life,size,
+        angle,spin,phase,frequency,colorBin,
+        currentX:new Float32Array(count),currentY:new Float32Array(count),
+        currentEndX:new Float32Array(count),currentEndY:new Float32Array(count),
+        alphaBand:new Uint8Array(count)
+      };
+    }
+
+    function playParticles(field){
+      particleCanvas = field.canvas;
+      overlay.appendChild(particleCanvas);
+      overlay.setAttribute('aria-hidden','true');
+      overlay.removeAttribute('tabindex');
+      overlay.classList.add('is-rasterized','is-disintegrating');
+      state = 'animating';
+      const startedAt = performance.now();
+      let siteRevealed = false;
+      let overlayFading = false;
+
+      function render(now){
+        const elapsed = (now-startedAt)/1000;
+        const ctx = field.context;
+        ctx.clearRect(0,0,field.width,field.height);
+
+        for (let i=0;i<field.count;i++){
+          const age = elapsed-field.delay[i];
+          if (age < 0){
+            const restingSize = field.size[i]*1.7;
+            field.currentX[i] = field.x0[i];
+            field.currentY[i] = field.y0[i];
+            field.currentEndX[i] = field.x0[i]+Math.cos(field.angle[i])*restingSize;
+            field.currentEndY[i] = field.y0[i]+Math.sin(field.angle[i])*restingSize;
+            field.alphaBand[i] = 6;
+            continue;
+          }
+          if (age > field.life[i]){
+            field.alphaBand[i] = 0;
+            continue;
+          }
+          const progress = age/field.life[i];
+          const fade = Math.pow(1-progress,1.55);
+          const turbulence = Math.sin(field.phase[i]+age*field.frequency[i])*(3+13*progress)*progress;
+          const x = field.x0[i]+field.vx[i]*age+turbulence;
+          const y = field.y0[i]+field.vy[i]*age+90*age*age;
+          const shardSize = field.size[i]*(1-.76*progress);
+          const rotation = field.angle[i]+field.spin[i]*age;
+          field.currentX[i] = x;
+          field.currentY[i] = y;
+          field.currentEndX[i] = x+Math.cos(rotation)*shardSize*1.7;
+          field.currentEndY[i] = y+Math.sin(rotation)*shardSize*1.7;
+          field.alphaBand[i] = Math.max(1,Math.ceil(fade*6));
+        }
+
+        for (let alpha=1;alpha<=6;alpha++){
+          ctx.globalAlpha = alpha/6;
+          for (let bin=0;bin<64;bin++){
+            const startIndex = field.binOffsets[bin];
+            const endIndex = field.binOffsets[bin+1];
+            if (startIndex === endIndex) continue;
+            let hasPath = false;
+            ctx.beginPath();
+            for (let i=startIndex;i<endIndex;i++){
+              if (field.alphaBand[i] !== alpha) continue;
+              ctx.moveTo(field.currentX[i],field.currentY[i]);
+              ctx.lineTo(field.currentEndX[i],field.currentEndY[i]);
+              hasPath = true;
+            }
+            if (hasPath){
+              ctx.strokeStyle = field.palette[bin];
+              ctx.stroke();
+            }
+          }
+        }
+        ctx.globalAlpha = 1;
+
+        if (!siteRevealed && elapsed >= 1.02){
+          siteRevealed = true;
+          revealSite();
+        }
+        if (!overlayFading && elapsed >= 1.43){
+          overlayFading = true;
+          overlay.classList.add('is-fading');
+        }
+        if (elapsed >= 1.88){
+          finish();
+          return;
+        }
+        animationFrame = requestAnimationFrame(render);
+      }
+
+      animationFrame = requestAnimationFrame(render);
+    }
+
+    async function start(){
+      if (state !== 'idle') return;
+      state = 'starting';
+      rememberPlayed();
+      if (reducedMotion){
+        cssFade();
+        return;
+      }
+      try{
+        await ensureLogoReady();
+        playParticles(createParticleField());
+      }catch (error){
+        console.warn('9 Meridian intro particle fallback active:',error.message);
+        cssFade();
+      }
+    }
+  })();
  
 })();
  
@@ -5215,15 +5289,24 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
   const VIEW_MAP={'index.html':'view-home','./index.html':'view-home','setup-form.html':'view-setup','./setup-form.html':'view-setup','privacy-policy.html':'view-privacy','./privacy-policy.html':'view-privacy'};
   const HASH_MAP={'entry':'view-entry','login':'view-entry','home':'view-home','setup-form':'view-setup','privacy-policy':'view-privacy','payment':'view-payment'};
   const REVERSE_HASH={'view-entry':'entry','view-home':'home','view-setup':'setup-form','view-privacy':'privacy-policy','view-payment':'payment'};
-  const KNOWN_SECTIONS=new Set(['top','about','why','features','compare','pricing','roi','demo','faq','feedback','feedback-form']);
+  const KNOWN_SECTIONS=new Set(['top','about','why','features','compare','pricing','roi','demo','booking','faq','feedback','feedback-form']);
   function hasValidSession(){
     if(window['9MAuth'])return !!window['9MAuth'].getUser();
     try{const s=JSON.parse(localStorage.getItem('9m_session')||'null');return !!(s&&s.provider==='google'&&s.sub&&s.email&&Number(s.exp)>Date.now()/1000);}catch(_){return false;}
   }
+  function returnHashFor(viewId,opts){
+    if(opts&&opts.returnTo)return opts.returnTo;
+    const current=location.hash||'';
+    if(current&&!['#entry','#login'].includes(current))return current;
+    return '#'+(REVERSE_HASH[viewId]||'home');
+  }
   function showView(viewId,opts){
     opts=opts||{};
     const signedIn=hasValidSession();
-    if(signedIn&&viewId==='view-entry'&&!opts.allowEntry){
+    if(!signedIn&&viewId!=='view-entry'){
+      const intended=returnHashFor(viewId,opts);if(intended&&intended!=='#entry')sessionStorage.setItem('9m_return_to',intended);
+      viewId='view-entry';opts=Object.assign({},opts,{replaceHistory:true});
+    }else if(signedIn&&viewId==='view-entry'&&!opts.allowEntry){
       viewId='view-home';opts=Object.assign({},opts,{replaceHistory:true});
     }
     document.querySelectorAll('.view').forEach(v=>v.classList.remove('is-active'));
@@ -5237,28 +5320,21 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     window.dispatchEvent(new CustomEvent('9m:viewchange',{detail:{viewId}}));
   }
   window.show9MView=showView;
-  function goToPayment(plan){
-    const selected=plan||sessionStorage.getItem('9m_selected_plan')||'Starter';
-    const ready=window['9MAuth']?.gateAction({intent:'purchase',returnTo:'payment',onStart:()=>{
-      sessionStorage.setItem('9m_selected_plan',selected);document.getElementById('paymentPlanName').textContent=selected;
-    }});
-    if(ready!==false)showView('view-payment');
-  }
+  function goToPayment(plan){const selected=plan||'Starter';sessionStorage.setItem('9m_selected_plan',selected);document.getElementById('paymentPlanName').textContent=selected;showView('view-payment')}
   function routeFromHash(opts){
     const h=location.hash.replace('#','');
-    if(h==='entry'||h==='login'){
-      showView(hasValidSession()?'view-home':'view-entry',Object.assign({},opts,{skipHistory:!hasValidSession(),replaceHistory:hasValidSession()}));return;
-    }
-    if(!h){showView('view-home',Object.assign({replaceHistory:true},opts));return;}
-    showView(HASH_MAP[h]||(KNOWN_SECTIONS.has(h)?'view-home':'view-home'),Object.assign({},opts,{skipHistory:true}));
+    if(!hasValidSession()){showView(h&&h!=='entry'?'view-home':'view-entry',Object.assign({skipHistory:h==='entry',returnTo:h&&h!=='entry'?'#'+h:null},opts));return;}
+    if(h==='entry'||h==='login'||!h){const saved=sessionStorage.getItem('9m_return_to');showView('view-home',Object.assign({replaceHistory:true},opts));if(saved&&saved!=='#home')setTimeout(()=>document.querySelector(saved)?.scrollIntoView({behavior:'auto'}),30);return;}
+    showView(HASH_MAP[h]||(KNOWN_SECTIONS.has(h)?'view-home':'view-home'),Object.assign({skipHistory:true},opts));
     if(KNOWN_SECTIONS.has(h))setTimeout(()=>document.getElementById(h)?.scrollIntoView({behavior:'auto'}),20);
   }
-  document.addEventListener('click',function(e){const pl=e.target.closest('[data-payment-plan]');if(pl){e.preventDefault();goToPayment(pl.dataset.paymentPlan);return}const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href');if(href==='#payment'){e.preventDefault();goToPayment();return}if(href==='#login'||href==='#entry'){e.preventDefault();window['9MAuth']?.clearGateContext?.(true);const viewId=hasValidSession()?'view-home':'view-entry';showView(viewId);if(viewId==='view-entry')window.dispatchEvent(new CustomEvent('9m:entry-arrival'));return}if(href==='#home'){e.preventDefault();showView('view-home');return}if(href==='#setup-form'){e.preventDefault();showView('view-setup');return}if(!href||!(href in VIEW_MAP))return;e.preventDefault();showView(VIEW_MAP[href])});
+  document.addEventListener('click',function(e){const pl=e.target.closest('[data-payment-plan]');if(pl){e.preventDefault();goToPayment(pl.dataset.paymentPlan);return}const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href');if(href==='#payment'){e.preventDefault();goToPayment();return}if(href==='#login'||href==='#entry'){e.preventDefault();showView(hasValidSession()?'view-home':'view-entry');return}if(href==='#home'){e.preventDefault();showView('view-home');return}if(href==='#setup-form'){e.preventDefault();showView('view-setup');return}if(!href||!(href in VIEW_MAP))return;e.preventDefault();showView(VIEW_MAP[href])});
   window.addEventListener('popstate',function(){routeFromHash({skipHistory:true})});
   window.addEventListener('hashchange',function(){routeFromHash({skipHistory:false})});
   document.addEventListener('DOMContentLoaded',function(){routeFromHash({skipScroll:true})});
-
-  // API requests use the same deployed origin configured above.
+ 
+  // TODO(9meridian): this still points at localhost — before going live, replace with your
+  // real deployed backend URL (e.g. https://api.9meridian.com), or Razorpay order creation will fail in production.
   const createOrderEndpoint=window.NINE_MERIDIAN_CONFIG.BACKEND_URL+window.NINE_MERIDIAN_CONFIG.ENDPOINTS.createOrder;
   const verifyEndpoint=window.NINE_MERIDIAN_CONFIG.BACKEND_URL+window.NINE_MERIDIAN_CONFIG.ENDPOINTS.verifyPayment;
   const track=document.getElementById('swipeTrack'),handle=document.getElementById('swipeHandle'),fill=document.getElementById('swipeFill'),swipeLabel=document.getElementById('swipeLabel'),status=document.getElementById('payStatus'),amountEl=document.getElementById('paymentAmount'),success=document.getElementById('paymentSuccess'),checkoutArea=document.getElementById('paymentCheckoutArea'),successText=document.getElementById('paymentSuccessText'),continueBtn=document.getElementById('continueOnboarding');
@@ -5280,7 +5356,6 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
   const SESSION_KEY='9m_session';
   const OAUTH_STATE_KEY='9m_google_oauth_state';
   const OUTBOX_KEY='9m_feedback_outbox';
-  const AUTH_INTENT_KEY='9m_auth_intent';
   const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const endpoint=key=>CONFIG.BACKEND_URL+CONFIG.ENDPOINTS[key];
   const AUTH_PROOF=Symbol('verified-google-auth');
@@ -5293,8 +5368,7 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     loginName:null,loginEmail:null,loginAvatar:null,status:document.getElementById('loginStatus'),
     authOptions:document.getElementById('loginAuthOptions'),setupPanel:document.getElementById('loginSetupPanel'),
     googleContainer:document.getElementById('googleButtonContainer'),redirectButton:document.getElementById('googleRedirectButton'),
-    emailDisabled:document.getElementById('emailAuthDisabled'),serverNotice:document.getElementById('serverSessionNotice'),
-    authContext:document.getElementById('entryAuthContext')
+    emailDisabled:document.getElementById('emailAuthDisabled'),serverNotice:document.getElementById('serverSessionNotice')
   };
   let toastTimer=0;
   function showToast(message){
@@ -5330,46 +5404,31 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     if(user){els.name.textContent=user.name||user.email;paintAvatar(els.avatar,user);}
     const noticeDismissed=session&&sessionStorage.getItem(`9m_server_notice_dismissed_${session.sub}`)==='1';
     els.serverNotice?.classList.toggle('is-visible',!!session&&session.token===null&&!noticeDismissed);
+    prefillBooking();
   }
-  function readAuthIntent(){try{return JSON.parse(sessionStorage.getItem(AUTH_INTENT_KEY)||'null');}catch(_){return null;}}
-  function syncAuthContext(){
-    const pending=readAuthIntent();let message='';
-    if(pending?.intent==='purchase')message='Sign in to continue your purchase';
-    els.authContext.textContent=message;els.authContext.hidden=!message;
-  }
-  function clearGateContext(clearReturn=false){sessionStorage.removeItem(AUTH_INTENT_KEY);if(clearReturn)sessionStorage.removeItem('9m_return_to');syncAuthContext();}
-  function normalizeReturnTo(value){const target=String(value||'home');return target.startsWith('#')?target:'#'+target;}
-  function gateAction({intent,returnTo,onStart}={}){
-    const session=readSession();
-    if(typeof onStart==='function')onStart({authenticated:!!session,user:session?.user||null});
-    if(session)return true;
-    const destination=normalizeReturnTo(returnTo||(intent==='purchase'?'payment':'home'));
-    sessionStorage.setItem('9m_return_to',destination);
-    sessionStorage.setItem(AUTH_INTENT_KEY,JSON.stringify({intent:String(intent||''),returnTo:destination}));
-    syncAuthContext();
-    window.show9MView?.('view-entry',{allowEntry:true,replaceHistory:true});
-    return false;
+  function prefillBooking(){
+    const user=readSession()?.user;const form=document.getElementById('bookingForm');if(!user||!form)return;
+    const name=form.elements.namedItem('name'),email=form.elements.namedItem('email');
+    if(name&&!name.value)name.value=user.name||'';if(email&&!email.value)email.value=user.email||'';
   }
   function logout(){
     const session=readSession();const email=session&&session.email;
-    localStorage.removeItem(SESSION_KEY);sessionStorage.removeItem('9m_return_to');clearGateContext();
+    localStorage.removeItem(SESSION_KEY);sessionStorage.removeItem('9m_return_to');
     sessionStorage.removeItem(OAUTH_STATE_KEY);if(session)sessionStorage.removeItem(`9m_server_notice_dismissed_${session.sub}`);
     if(email&&window.google?.accounts?.id?.revoke){try{window.google.accounts.id.revoke(email,()=>{});}catch(_){}}
     if(window.google?.accounts?.id?.disableAutoSelect){try{window.google.accounts.id.disableAutoSelect();}catch(_){}}
     els.user.classList.remove('is-open');els.chip?.setAttribute('aria-expanded','false');updateAuthUI();
-    document.body.classList.remove('entry-exiting');showToast('You are signed out.');
+    document.body.classList.remove('entry-exiting');
+    if(window.show9MView)window.show9MView('view-entry',{allowEntry:true,replaceHistory:true});
+    window.scrollTo({top:0,behavior:'auto'});showToast('You are signed out.');
   }
   function routeAfterLogin(user){
     const destination=sessionStorage.getItem('9m_return_to')||'#home';sessionStorage.removeItem('9m_return_to');
-    const intent=readAuthIntent();clearGateContext();
     const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.body.classList.add('entry-exiting');window.dispatchEvent(new CustomEvent('9m:entry-exit'));
     setTimeout(()=>{
       document.body.classList.remove('entry-exiting');
-      if(destination==='#payment'){
-        const plan=sessionStorage.getItem('9m_selected_plan')||'Starter';document.getElementById('paymentPlanName').textContent=plan;
-        window.show9MView?.('view-payment',{replaceHistory:true});showToast(`Signed in as ${user.name||user.email} \u2014 continuing your purchase of the ${plan} plan.`);
-      }
+      if(destination==='#payment')window.show9MView?.('view-payment',{replaceHistory:true});
       else if(destination==='#setup-form')window.show9MView?.('view-setup',{replaceHistory:true});
       else if(destination==='#privacy-policy')window.show9MView?.('view-privacy',{replaceHistory:true});
       else{
@@ -5377,7 +5436,7 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
         if(destination!=='#home')setTimeout(()=>document.querySelector(destination)?.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'}),40);
         history.replaceState({},'',destination);
       }
-      if(destination!=='#payment')showToast(`Signed in as ${user.name||user.email}`);
+      prefillBooking();showToast(`Signed in as ${user.name||user.email}`);
     },reduced?40:920);
   }
   function login(session,proof){
@@ -5386,8 +5445,11 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     const stored={provider:'google',sub:String(session.sub),name:String(session.name||session.email.split('@')[0]),email:String(session.email),picture:String(session.picture||''),exp:normalizeExpSeconds(session.exp),token:session.token===null?null:String(session.token)};
     localStorage.setItem(SESSION_KEY,JSON.stringify(stored));updateAuthUI();routeAfterLogin(stored);return stored;
   }
-  window['9MAuth']={getUser:()=>readSession()?.user||null,login,logout,gateAction,clearGateContext};
-  syncAuthContext();
+  function requireAuth(redirect){
+    if(readSession())return true;sessionStorage.setItem('9m_return_to',redirect||'#booking');
+    if(window.show9MView)window.show9MView('view-entry',{allowEntry:true,replaceHistory:true});return false;
+  }
+  window['9MAuth']={getUser:()=>readSession()?.user||null,login,logout,requireAuth};
 
   class BackendUnavailableError extends Error{}
   class BackendRejectedError extends Error{}
@@ -5548,6 +5610,24 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
   document.addEventListener('click',e=>{if(!els.user.contains(e.target)){els.user.classList.remove('is-open');els.chip.setAttribute('aria-expanded','false');}});
   document.getElementById('logoutButton').addEventListener('click',logout);
 
+  document.addEventListener('click',e=>{
+    const book=e.target.closest('a[href="#booking"]');if(!book)return;
+    if(!readSession()){e.preventDefault();e.stopPropagation();requireAuth('#booking');return;}
+    if(!document.getElementById('view-home').classList.contains('is-active')){e.preventDefault();e.stopPropagation();window.show9MView('view-home');setTimeout(()=>document.getElementById('booking').scrollIntoView({behavior:'smooth'}),60);}
+  },true);
+  window.NineMeridianHandleBooking=async({form,success,successText})=>{
+    if(!readSession()){requireAuth('#booking');return;}if(!form.reportValidity())return;
+    const data=new FormData(form);if(String(data.get('hp_field')||'').trim())return;
+    const session=readSession();const button=form.querySelector('.form-submit');const status=document.getElementById('bookingApiStatus');
+    const name=String(data.get('name')||''),date=String(data.get('date')||''),time=String(data.get('time')||'');
+    const payload={token:session.token,name,email:String(data.get('email')||''),phone:String(data.get('phone')||''),company:String(data.get('company')||''),topic:String(data.get('topic')||''),datetime:date&&time?new Date(`${date}T${time}`).toISOString():''};
+    button.disabled=true;button.textContent='Confirming…';status.textContent='Saving your appointment securely…';
+    try{await requestJSON(endpoint('appointments'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)},8000);status.textContent='';}
+    catch(_){status.textContent='Backend unavailable — showing the existing local confirmation fallback.';}
+    const first=name.split(' ')[0]||'there';successText.textContent=date&&time?`Thanks, ${first} — we'll see you on ${date} at ${time}. A calendar invite is on its way to your inbox.`:`Thanks, ${first} — a calendar invite is on its way to your inbox.`;
+    form.hidden=true;success.hidden=false;button.disabled=false;button.textContent='Confirm Booking';
+  };
+
   function getOutbox(){try{const value=JSON.parse(localStorage.getItem(OUTBOX_KEY)||'[]');return Array.isArray(value)?value:[];}catch(_){return[];}}
   function saveOutbox(items){localStorage.setItem(OUTBOX_KEY,JSON.stringify(items));}
   async function flushFeedbackOutbox(){
@@ -5584,37 +5664,123 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
 })();
 </script>
 <script>
+/* ============ SWIPE-TO-ENTER LOCK SCREEN ============ */
 (function(){
-  const modal=document.getElementById('legalModal');
-  if(!modal)return;
-  const body=document.getElementById('legalModalBody');
-  const tabs=Array.from(modal.querySelectorAll('.legal-tab'));
-  const docs={refund:document.getElementById('legalDocRefund'),terms:document.getElementById('legalDocTerms')};
-  let active='refund';
-  function showDoc(key){
-    if(!docs[key])key='refund';
-    active=key;
-    tabs.forEach(tab=>{
-      const on=tab.dataset.legalTab===key;
-      tab.classList.toggle('is-active',on);
-      tab.setAttribute('aria-selected',on?'true':'false');
-    });
-    Object.keys(docs).forEach(k=>docs[k].classList.toggle('is-active',k===key));
+  "use strict";
+  const lock = document.getElementById('lockScreen');
+  if(!lock) return;
+ 
+  const alreadyUnlocked = sessionStorage.getItem('9m_unlocked') === '1';
+  if(alreadyUnlocked){
+    lock.classList.add('is-hidden');
+    document.documentElement.classList.remove('lock-active');
+    return;
   }
-  function openLegal(key){
-    showDoc(key||active);
-    body.scrollTop=0;
-    if(typeof modal.showModal==='function')modal.showModal();else modal.setAttribute('open','');
+ 
+  document.documentElement.classList.add('lock-active');
+  lock.setAttribute('tabindex','0');
+ 
+  const label = document.getElementById('lockSwipeLabel');
+  const DEFAULT_LABEL = label ? label.textContent : '';
+  const DRAG_THRESHOLD = 90; // px of upward drag needed to auto-open the gate
+  const gateRight = lock.querySelector('.lock-gate-right');
+ 
+  let unlocked = false;
+  function unlock(){
+    if(unlocked) return;
+    unlocked = true;
+    sessionStorage.setItem('9m_unlocked', '1');
+    document.documentElement.classList.remove('lock-active');
+    if(label) label.textContent = 'Opening…';
+    lock.classList.add('is-open');
+    let done = false;
+    function finish(){
+      if(done) return;
+      done = true;
+      lock.classList.add('is-hidden');
+      if(gateRight) gateRight.removeEventListener('transitionend', onEnd);
+    }
+    function onEnd(e){
+      if(e.propertyName === 'transform') finish();
+    }
+    if(gateRight) gateRight.addEventListener('transitionend', onEnd);
+    setTimeout(finish, 1100); // safety net in case transitionend doesn't fire
   }
-  document.addEventListener('click',e=>{
-    const trigger=e.target.closest('[data-legal-doc]');
-    if(trigger){e.preventDefault();openLegal(trigger.getAttribute('data-legal-doc'));}
+ 
+  function setProgress(p){
+    const clamped = Math.max(0, Math.min(1, p));
+    lock.style.setProperty('--p', clamped.toFixed(3));
+    if(label) label.textContent = clamped > 0.08 ? 'Keep going…' : DEFAULT_LABEL;
+  }
+ 
+  function springBack(){
+    lock.classList.remove('is-dragging');
+    setProgress(0);
+  }
+ 
+  lock.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      unlock();
+    }
   });
-  tabs.forEach(tab=>tab.addEventListener('click',()=>showDoc(tab.dataset.legalTab)));
-  document.getElementById('legalModalClose').addEventListener('click',()=>modal.close());
-  document.getElementById('legalCloseBtn').addEventListener('click',()=>modal.close());
-  document.getElementById('legalPrintBtn').addEventListener('click',()=>window.print());
-  modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});
+ 
+  // Unified pointer-based drag (covers mouse + touch + pen) with live visual feedback.
+  let startY = null, dragging = false, moved = false;
+ 
+  lock.addEventListener('pointerdown', function(e){
+    if(unlocked) return;
+    startY = e.clientY;
+    dragging = true;
+    moved = false;
+    lock.classList.add('is-dragging');
+    if(lock.setPointerCapture){ try{ lock.setPointerCapture(e.pointerId); }catch(_){} }
+  });
+ 
+  lock.addEventListener('pointermove', function(e){
+    if(!dragging || unlocked || startY === null) return;
+    const dy = startY - e.clientY;
+    if(Math.abs(dy) > 4) moved = true;
+    if(dy > 0){
+      setProgress(dy / DRAG_THRESHOLD);
+      if(dy >= DRAG_THRESHOLD) unlock();
+    } else {
+      setProgress(0);
+    }
+  });
+ 
+  function endDrag(e){
+    if(!dragging) return;
+    dragging = false;
+    if(!unlocked){
+      // A tap/click with negligible movement still counts as "enter".
+      if(!moved) unlock();
+      else springBack();
+    }
+    startY = null;
+  }
+ 
+  lock.addEventListener('pointerup', endDrag);
+  lock.addEventListener('pointercancel', endDrag);
+ 
+  // Fallback for browsers without full Pointer Events touch support.
+  let touchStartY = null;
+  const skipTouchFallback = typeof window.PointerEvent !== 'undefined';
+  lock.addEventListener('touchstart', function(e){
+    if(skipTouchFallback) return;
+    touchStartY = e.touches[0].clientY;
+  }, {passive:true});
+  lock.addEventListener('touchmove', function(e){
+    if(skipTouchFallback || touchStartY === null || unlocked) return;
+    const dy = touchStartY - e.touches[0].clientY;
+    setProgress(dy / DRAG_THRESHOLD);
+    if(dy > DRAG_THRESHOLD) unlock();
+  }, {passive:true});
+  lock.addEventListener('touchend', function(){
+    if(skipTouchFallback) return;
+    if(!unlocked) springBack();
+    touchStartY = null;
+  }, {passive:true});
 })();
 </script>
 <script type="module">
@@ -5711,7 +5877,7 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches||new URLSearchParams(location.search).get('motion')==='reduce';
   document.documentElement.classList.toggle('reduced-motion',reduced);
   const mobile=matchMedia('(max-width:639px)').matches;
-  const codeRain=document.getElementById('entryCodeRain'),accessLayer=entry.querySelector('.entry-access');
+  const codeRain=document.getElementById('entryCodeRain');
   const code=['01001101','10110100','auth.init()','sys.init()','session.active','calendar.sync()','lead.accepted','booking.confirmed','agent.online','arc::map','>> SCAN','token.verify()','intent.match','reply.stream','slot.reserve()','handoff.ready','context.load','ACK::200','latency<2s','SYNC_OK'];
   const codeCount=mobile?30:62;
   for(let i=0;i<codeCount;i++){
@@ -5727,7 +5893,7 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     if(!entry.classList.contains('is-active'))return;
     const max=Math.max(1,entry.offsetHeight-innerHeight);scrollProgress=reduced?1:clamp(scrollY/max);
     const access=reduced?1:smooth(.28,.78,scrollProgress);
-    entry.style.setProperty('--entry-progress',scrollProgress.toFixed(4));entry.style.setProperty('--entry-access',access.toFixed(4));document.documentElement.style.setProperty('--entry-progress',scrollProgress.toFixed(4));accessLayer?.classList.toggle('is-interactive',access>.55);
+    entry.style.setProperty('--entry-progress',scrollProgress.toFixed(4));entry.style.setProperty('--entry-access',access.toFixed(4));document.documentElement.style.setProperty('--entry-progress',scrollProgress.toFixed(4));
     document.querySelectorAll('#fxHud button').forEach(b=>b.classList.toggle('is-active',Number(b.dataset.scene)===(scrollProgress>=.5?1:0)));
   }
   window.addEventListener('scroll',syncEntryProgress,{passive:true});window.addEventListener('resize',syncEntryProgress,{passive:true});window.addEventListener('9m:viewchange',syncEntryProgress);syncEntryProgress();
@@ -5735,7 +5901,7 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
   const rootElement=document.documentElement,feedbackDialog=document.getElementById('entryFeedbackDialog'),fxHud=document.getElementById('fxHud');
   const WHEEL_THRESHOLD=60,WHEEL_WINDOW=180,TOUCH_THRESHOLD=40,AUTOPILOT_DURATION=1100,RETRIGGER_LOCK=350;
   const interactiveSelector='.entry-panel,#entryFeedbackDialog,.entry-utilities,#fxHud,a,button,input,textarea,select,summary,[contenteditable="true"],[role="button"],[role="link"]';
-  let autopilot=null,lockedUntil=0,wheelSamples=[],wheelDirection=0,touchStart=null,arrivalSequence=0,arrivalActive=false;
+  let autopilot=null,lockedUntil=0,wheelSamples=[],wheelDirection=0,touchStart=null;
   function autopilotDisabled(){return reduced||rootElement.classList.contains('reduced-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches;}
   function entryIsActive(){return entry.classList.contains('is-active');}
   function activeInput(){const el=document.activeElement;return !!el&&(el.matches('input,textarea,select,[contenteditable="true"]'));}
@@ -5748,48 +5914,24 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     resetWheelIntent();
   }
   function easeInOutCubic(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
-  function startAutopilot(target,opts){
+  function startAutopilot(target){
     if(!entryIsActive()||autopilotDisabled())return;
-    opts=opts||{};
     if(autopilot?.raf)cancelAnimationFrame(autopilot.raf);
     autopilot=null;resetWheelIntent();
     const max=Math.max(0,entry.offsetHeight-innerHeight),destination=clamp(target,0,max);
-    const run={raf:0,startY:null,startTime:0,target:destination,direction:destination>=scrollY?1:-1,duration:opts.duration||AUTOPILOT_DURATION,onComplete:typeof opts.onComplete==='function'?opts.onComplete:null};
-    if(Math.abs(destination-scrollY)<1){window.scrollTo(0,destination);syncEntryProgress();lockedUntil=performance.now()+RETRIGGER_LOCK;run.onComplete?.();return;}
+    const run={raf:0,startY:null,startTime:0,target:destination,direction:destination>=scrollY?1:-1};
+    if(Math.abs(destination-scrollY)<1){window.scrollTo(0,destination);syncEntryProgress();lockedUntil=performance.now()+RETRIGGER_LOCK;return;}
     autopilot=run;rootElement.classList.add('entry-autopilot');
     function step(now){
       if(autopilot!==run)return;
-      if(document.hidden||!entryIsActive()||autopilotDisabled()){arrivalActive?cancelEntryArrival(false):cancelAutopilot(false);return;}
+      if(document.hidden||!entryIsActive()||autopilotDisabled()){cancelAutopilot(false);return;}
       if(run.startY===null){run.startY=scrollY;run.startTime=now;}
-      const t=clamp((now-run.startTime)/run.duration),y=run.startY+(run.target-run.startY)*easeInOutCubic(t);
+      const t=clamp((now-run.startTime)/AUTOPILOT_DURATION),y=run.startY+(run.target-run.startY)*easeInOutCubic(t);
       window.scrollTo(0,y);syncEntryProgress();
-      if(t>=1){window.scrollTo(0,run.target);syncEntryProgress();autopilot=null;rootElement.classList.remove('entry-autopilot');lockedUntil=performance.now()+RETRIGGER_LOCK;resetWheelIntent();run.onComplete?.();return;}
+      if(t>=1){window.scrollTo(0,run.target);syncEntryProgress();autopilot=null;rootElement.classList.remove('entry-autopilot');lockedUntil=performance.now()+RETRIGGER_LOCK;resetWheelIntent();return;}
       run.raf=requestAnimationFrame(step);
     }
     run.raf=requestAnimationFrame(step);
-  }
-  function entryHasSession(){
-    if(window['9MAuth']?.getUser?.())return true;
-    try{const session=JSON.parse(localStorage.getItem('9m_session')||'null');return !!(session&&session.provider==='google'&&session.sub&&session.email&&Number(session.exp)>Date.now()/1000);}catch(_){return false;}
-  }
-  function focusEntryForm(){
-    const email=document.getElementById('loginEmail');
-    if(email&&!email.disabled)email.focus({preventScroll:true});
-    else{const panel=entry.querySelector('.entry-panel');if(panel){panel.tabIndex=-1;panel.focus({preventScroll:true});}}
-  }
-  function cancelEntryArrival(lock=false){arrivalSequence++;arrivalActive=false;cancelAutopilot(lock);}
-  function playEntryArrival(){
-    cancelEntryArrival(false);
-    if(!entryIsActive()||entryHasSession())return;
-    const bottom=Math.max(0,entry.offsetHeight-innerHeight);
-    if(autopilotDisabled()){window.scrollTo(0,bottom);syncEntryProgress();requestAnimationFrame(focusEntryForm);return;}
-    if(bottom<2){syncEntryProgress();requestAnimationFrame(focusEntryForm);return;}
-    const sequence=arrivalSequence,nudge=Math.min(bottom,clamp(innerHeight*.09,80,140));
-    arrivalActive=true;
-    startAutopilot(nudge,{duration:210,onComplete:()=>{
-      if(!arrivalActive||sequence!==arrivalSequence||!entryIsActive())return;
-      startAutopilot(bottom,{onComplete:()=>{if(!arrivalActive||sequence!==arrivalSequence)return;arrivalActive=false;focusEntryForm();}});
-    }});
   }
   function handleIntent(direction,progress=scrollProgress){
     if(!entryIsActive()||autopilotDisabled()||performance.now()<lockedUntil)return;
@@ -5801,7 +5943,6 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     else if(direction<0&&progress>.75)startAutopilot(0);
   }
   window.addEventListener('wheel',event=>{
-    if(arrivalActive&&entryIsActive()&&Math.abs(event.deltaY)>=Math.abs(event.deltaX)){cancelEntryArrival(true);return;}
     if(!entryIsActive()||autopilotDisabled()||blockedInput(event.target)||Math.abs(event.deltaX)>Math.abs(event.deltaY)){resetWheelIntent();return;}
     const scale=event.deltaMode===1?16:event.deltaMode===2?innerHeight:1,delta=event.deltaY*scale,direction=Math.sign(delta),now=performance.now();
     if(!direction)return;
@@ -5810,7 +5951,6 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     if(Math.abs(wheelSamples.reduce((sum,sample)=>sum+sample.delta,0))>=WHEEL_THRESHOLD){resetWheelIntent();handleIntent(direction);}
   },{passive:true});
   window.addEventListener('touchstart',event=>{
-    if(arrivalActive&&entryIsActive()&&event.touches.length===1){cancelEntryArrival(true);touchStart=null;return;}
     if(!entryIsActive()||autopilotDisabled()||blockedInput(event.target)||event.touches.length!==1){touchStart=null;return;}
     const touch=event.touches[0];touchStart={x:touch.clientX,y:touch.clientY,progress:scrollProgress};
   },{passive:true});
@@ -5823,17 +5963,14 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
   },{passive:true});
   window.addEventListener('touchcancel',()=>{touchStart=null;},{passive:true});
   window.addEventListener('keydown',event=>{
-    const scrollKey=event.key==='Escape'||event.key==='ArrowDown'||event.key==='PageDown'||event.key===' '||event.code==='Space'||event.key==='ArrowUp'||event.key==='PageUp';
-    if(arrivalActive&&entryIsActive()&&scrollKey&&!event.altKey&&!event.ctrlKey&&!event.metaKey){cancelEntryArrival(true);return;}
     if(!entryIsActive()||autopilotDisabled()||blockedInput(event.target)||event.altKey||event.ctrlKey||event.metaKey)return;
     if(event.key==='Escape'){handleIntent(-1);return;}
     if(event.key==='ArrowDown'||event.key==='PageDown'||event.key===' '||event.code==='Space')handleIntent(1);
     else if(event.key==='ArrowUp'||event.key==='PageUp')handleIntent(-1);
   });
-  window.addEventListener('9m:viewchange',()=>{cancelEntryArrival(false);lockedUntil=0;touchStart=null;});
-  window.addEventListener('9m:entry-arrival',playEntryArrival);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelEntryArrival(false);});
-  fxHud?.addEventListener('click',()=>cancelEntryArrival(false),true);
+  window.addEventListener('9m:viewchange',()=>{cancelAutopilot(false);lockedUntil=0;touchStart=null;});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAutopilot(false);});
+  fxHud?.addEventListener('click',()=>cancelAutopilot(false),true);
   document.querySelectorAll('#fxHud button').forEach(button=>button.addEventListener('click',()=>window.scrollTo({top:Number(button.dataset.scene)*innerHeight,behavior:reduced?'auto':'smooth'})));
   try{
     if(new URLSearchParams(location.search).get('no-webgl')==='1')throw new Error('WebGL disabled for fallback test');
@@ -5864,11 +6001,11 @@ window.NINE_MERIDIAN_CONFIG = Object.freeze({
     const coreGlow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTexture(false),color:core,transparent:true,opacity:.58,blending:THREE.AdditiveBlending,depthWrite:false}));coreGlow.scale.set(2.25,2.25,1);root.add(coreGlow);
     const flare=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTexture(true),color:glow,transparent:true,opacity:.38,blending:THREE.AdditiveBlending,depthWrite:false}));flare.scale.set(7.6,.68,1);root.add(flare);
     const emberPos=new Float32Array(EMBER_COUNT*3),emberCol=new Float32Array(EMBER_COUNT*3),emberSize=new Float32Array(EMBER_COUNT);for(let i=0;i<EMBER_COUNT;i++){emberPos[i*3]=(rand(i+401)-.5)*10;emberPos[i*3+1]=(rand(i+501)-.5)*7;emberPos[i*3+2]=(rand(i+601)-.5)*4-1;const c=glow.clone().lerp(deep,rand(i+701));emberCol.set([c.r,c.g,c.b],i*3);emberSize[i]=.5+rand(i+801)*1.6;}const eg=new THREE.BufferGeometry();eg.setAttribute('position',new THREE.BufferAttribute(emberPos,3));eg.setAttribute('color',new THREE.BufferAttribute(emberCol,3));eg.setAttribute('aSize',new THREE.BufferAttribute(emberSize,1));const em=new THREE.ShaderMaterial({uniforms:{uOpacity:{value:.5}},vertexShader:`attribute float aSize;varying vec3 vColor;void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;gl_PointSize=aSize*(18./max(1.,-mv.z));vColor=color;}`,fragmentShader:`varying vec3 vColor;uniform float uOpacity;void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;gl_FragColor=vec4(vColor,smoothstep(.5,.04,d)*uOpacity);}`,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,vertexColors:true}),embers=new THREE.Points(eg,em);scene.add(embers);
-    let raf=0,active=true,last=performance.now(),lastFrameTime=last,frames=0,qualityReduced=false,burst=0;
+    let raf=0,active=true,last=performance.now(),frames=0,qualityReduced=false,burst=0;
     function layout(){const m=innerWidth<640,fp=reduced?0:scrollProgress;root.position.x=m?0:-1.25+fp*.15;root.position.y=m?(fp<.45?-1.15:0):0;root.scale.setScalar(m?.86:1);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.setSize(innerWidth,innerHeight,false);}
     let lastMorph=-1;
     function morph(){const fp=reduced?0:scrollProgress;if(Math.abs(lastMorph-fp)<.0001)return;lastMorph=fp;const base=smooth(.08,.92,fp),p=geometry.attributes.position.array;for(let i=0;i<COUNT;i++){const q=smooth(delays[i],1,base),j=i*3;p[j]=hero[j]+(sun[j]-hero[j])*q;p[j+1]=hero[j+1]+(sun[j+1]-hero[j+1])*q;p[j+2]=hero[j+2]+(sun[j+2]-hero[j+2])*q;}geometry.attributes.position.needsUpdate=true;}
-    function render(now){raf=0;if(!active)return;const frameScale=Math.min(2.5,Math.max(.1,(now-lastFrameTime)/16.6667));lastFrameTime=now;morph();const fp=reduced?0:scrollProgress,access=smooth(.3,.8,fp),heroFade=1-access;material.uniforms.uTime.value=now*.001;material.uniforms.uOpacity.value=.82+access*.58+burst*.5;camera.position.z=6.45-fp*1.25;root.rotation.y=(reduced?0:now*.000035)+mouseX*.055;root.rotation.x=mouseY*.035;root.rotation.z=reduced?0:Math.sin(now*.00016)*.025;rings.children.forEach(r=>{if(!reduced)r.rotation.z+=r.userData.speed*frameScale;r.material.opacity=heroFade*.42;});wire.material.opacity=heroFade*.18;coreGlow.material.opacity=.35+access*.95+burst;coreGlow.scale.setScalar(1.65+access*2.25+(reduced?0:Math.sin(now*.002)*.07));flare.material.opacity=.24+access*.72+burst*.4;flare.scale.set(6.8+access*5.8,.46+access*.92,1);const ep=eg.attributes.position.array;if(!reduced){for(let i=0;i<EMBER_COUNT;i++){ep[i*3+1]+=(.001+(i%9)*.00008)*frameScale;if(ep[i*3+1]>3.6)ep[i*3+1]=-3.6;}eg.attributes.position.needsUpdate=true;embers.rotation.y=-now*.000018;}burst*=Math.pow(.9,frameScale);renderer.render(scene,camera);frames++;if(now-last>2200){const fps=frames*1000/(now-last);canvas.dataset.fps=Math.round(fps);if(frames>=30&&fps<40&&!qualityReduced){qualityReduced=true;geometry.setDrawRange(0,Math.floor(COUNT*.58));eg.setDrawRange(0,Math.floor(EMBER_COUNT*.6));canvas.dataset.quality='reduced';}frames=0;last=now;}if(!reduced)raf=requestAnimationFrame(render);}
+    function render(now){raf=0;if(!active)return;morph();const fp=reduced?0:scrollProgress,access=smooth(.3,.8,fp),heroFade=1-access;material.uniforms.uTime.value=now*.001;material.uniforms.uOpacity.value=.82+access*.58+burst*.5;camera.position.z=6.45-fp*1.25;root.rotation.y=(reduced?0:now*.000035)+mouseX*.055;root.rotation.x=mouseY*.035;root.rotation.z=reduced?0:Math.sin(now*.00016)*.025;rings.children.forEach(r=>{if(!reduced)r.rotation.z+=r.userData.speed;r.material.opacity=heroFade*.42;});wire.material.opacity=heroFade*.18;coreGlow.material.opacity=.35+access*.95+burst;coreGlow.scale.setScalar(1.65+access*2.25+(reduced?0:Math.sin(now*.002)*.07));flare.material.opacity=.24+access*.72+burst*.4;flare.scale.set(6.8+access*5.8,.46+access*.92,1);const ep=eg.attributes.position.array;if(!reduced){for(let i=0;i<EMBER_COUNT;i++){ep[i*3+1]+=.001+(i%9)*.00008;if(ep[i*3+1]>3.6)ep[i*3+1]=-3.6;}eg.attributes.position.needsUpdate=true;embers.rotation.y=-now*.000018;}burst*=.9;renderer.render(scene,camera);frames++;if(now-last>2200){const fps=frames*1000/(now-last);canvas.dataset.fps=Math.round(fps);if(fps<40&&!qualityReduced){qualityReduced=true;geometry.setDrawRange(0,Math.floor(COUNT*.58));eg.setDrawRange(0,Math.floor(EMBER_COUNT*.6));canvas.dataset.quality='reduced';}frames=0;last=now;}if(!reduced)raf=requestAnimationFrame(render);}
     function syncActivity(){active=!document.hidden&&entry.classList.contains('is-active');canvas.classList.toggle('is-paused',!active);if(active&&!raf)raf=requestAnimationFrame(render);}
     document.addEventListener('visibilitychange',syncActivity);window.addEventListener('resize',()=>{layout();syncEntryProgress();},{passive:true});window.addEventListener('9m:viewchange',syncActivity);window.addEventListener('9m:entry-exit',()=>{burst=1.7;});layout();syncActivity();canvas.dataset.motion=reduced?'reduced':'full';if(reduced)requestAnimationFrame(render);
   }catch(error){canvas.classList.add('is-paused');canvas.dataset.fallback='true';console.warn('9 Meridian CSS entry fallback active:',error.message);}
