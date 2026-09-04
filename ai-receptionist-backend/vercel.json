@@ -7,24 +7,11 @@
       "includeFiles": "9-meridian-website/**",
       "maxDuration": 60
     },
-    "api/cron.js": {
-      "maxDuration": 60
-    }
   },
   "rewrites": [
     {
-      "source": "/api/internal/process-webhooks",
-      "destination": "/api/cron.js"
-    },
-    {
       "source": "/(.*)",
       "destination": "/api/index.js"
-    }
-  ],
-  "crons": [
-    {
-      "path": "/api/internal/process-webhooks",
-      "schedule": "* * * * *"
     }
   ]
 }

@@ -173,9 +173,16 @@ export class RazorpayController {
       eventId
     );
 
+    // Vercel Hobby has no frequent Cron jobs. Process the newly persisted event
+    // during this webhook request instead of relying on a long-running worker.
+    // The queue's database claim logic still makes duplicate provider retries
+    // and concurrent function instances safe.
+    await RazorpayService.processWebhookQueue();
+
     res.status(200).json({
       success: true,
       received: true,
+      processed: true,
     });
   }
 }

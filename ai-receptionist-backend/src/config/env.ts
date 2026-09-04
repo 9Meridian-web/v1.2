@@ -38,9 +38,6 @@ if (NODE_ENV === "production") {
     if (!process.env.ONBOARDING_TOKEN_SECRET) {
         throw new Error("ONBOARDING_TOKEN_SECRET is required in production.");
     }
-    if (!process.env.CRON_SECRET || process.env.CRON_SECRET.length < 16) {
-        throw new Error("CRON_SECRET must be at least 16 characters in production.");
-    }
     if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET || !process.env.RAZORPAY_WEBHOOK_SECRET) {
         throw new Error("Razorpay credentials are required in production.");
     }
@@ -73,7 +70,6 @@ export const env = {
     INTERNAL_WEBHOOK_SECRET: process.env.INTERNAL_WEBHOOK_SECRET ?? "",
     GOOGLE_TOKEN_ENCRYPTION_KEY: process.env.GOOGLE_TOKEN_ENCRYPTION_KEY ?? "",
     ONBOARDING_TOKEN_SECRET: getEnv("ONBOARDING_TOKEN_SECRET", process.env.JWT_SECRET),
-    CRON_SECRET: process.env.CRON_SECRET ?? "",
 
     RAZORPAY_KEY_ID: getEnv("RAZORPAY_KEY_ID", "rzp_test_placeholder"),
     RAZORPAY_KEY_SECRET: getEnv("RAZORPAY_KEY_SECRET", "development-placeholder"),
