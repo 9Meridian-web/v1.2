@@ -1,10 +1,10 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "$schema": "https://vercel.sh",
   "framework": null,
   "buildCommand": "npm run build",
+  "outputDirectory": ".",
   "functions": {
     "api/index.js": {
-      "includeFiles": "9-meridian-website/**",
       "maxDuration": 60
     }
   },
