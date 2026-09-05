@@ -1,17 +1,5 @@
 {
   "$schema": "https://vercel.sh",
-  "framework": null,
   "buildCommand": "npm run build",
-  "outputDirectory": ".",
-  "functions": {
-    "api/index.js": {
-      "maxDuration": 60
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/index.js"
-    }
-  ]
+  "outputDirectory": "."
 }
