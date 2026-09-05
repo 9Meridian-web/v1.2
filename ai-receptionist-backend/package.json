@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "type": "commonjs",
   "engines": {
-    "node": ">=20 <25"
+    "node": ">=20 <23"
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
